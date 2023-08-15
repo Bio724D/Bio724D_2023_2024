@@ -52,7 +52,7 @@
 | 07 | 12 OCT | check-in / troublshooting lunch | 
 | 08 | 19 OCT | Sarah Lipshutz: data lunch | 
 | 09 | 26 OCT | Spencer Rhea: data lunch | 
-| 10 | 02 NOV | Amy Schmid: LLMs and data science  | 
+| 10 | 02 NOV | Amy Schmid: data lunch  | 
 | 11 | 09 NOV | Beniamino Tuliozi: data lunch | 
 | 12 | 16 NOV | Diego Gallegos: data lunch | 
 | -- | 23 NOV | no class (Thanksgiving break) | 
