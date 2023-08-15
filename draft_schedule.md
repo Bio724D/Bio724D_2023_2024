@@ -50,9 +50,9 @@
 | 05 | 28 SEP | instructor 3: data lunch | 
 | 06 | 05 OCT | bio IT team / library: computing / learning resources | 
 | 07 | 12 OCT | check-in / troublshooting lunch | 
-| 08 | 19 OCT | Amy Schmid/Sarah Lipshutz/Spencer Rhea: data lunch | 
-| 09 | 26 OCT | Amy Schmid/Sarah Lipshutz/Spencer Rhea: data lunch | 
-| 10 | 02 NOV | Amy Schmid/Sarah Lipshutz/Spencer Rhea: LLMs and data science  | 
+| 08 | 19 OCT | Sarah Lipshutz: data lunch | 
+| 09 | 26 OCT | Spencer Rhea: data lunch | 
+| 10 | 02 NOV | Amy Schmid: LLMs and data science  | 
 | 11 | 09 NOV | Beniamino Tuliozi: data lunch | 
 | 12 | 16 NOV | Diego Gallegos: data lunch | 
 | -- | 23 NOV | no class (Thanksgiving break) | 
