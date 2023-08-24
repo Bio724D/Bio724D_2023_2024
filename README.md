@@ -2,10 +2,9 @@
 Course website for Biology 724D: Foundations of Data Science for Biologists (2023-2024 AY)
 
 
-
 ### Course Description
 
-This course is the first of a two-semester sequence that provides an overview of computing and data analysis concepts and tools that are frequently used throughout the biological sciences. Topics covered include: data filtering and restructuring; data visualization and effective communication; data science best practices for reproducability, reusability, and discovery; and working effectively with big data. Students will learn how to leverage key tools from the Unix, R, and Python computing ecosystems.
+This course is a two-semester sequence that provides an overview of computing and data analysis concepts and tools that are frequently used throughout the biological sciences. Topics covered include: data filtering and restructuring; data visualization and effective communication; data science best practices for reproducability, reusability, and discovery; and working effectively with big data. Students will learn how to leverage key tools from the Unix, R, and Python computing ecosystems.
 
 ### Course Goals and Objectives
 
