@@ -200,7 +200,7 @@ format:
 
 -   less -- a "pager" program that allows you to read text one page at a time. Advance with <space>/b and quit with q
 
--   cut -- removes sections (bytes, characters, or fields) from input. See cut --help for switch options. For these examples create a file (columns.txt) with the following command (``t` = TAB character, `\n` = newline character):
+-   cut -- removes sections (bytes, characters, or fields) from input. See `cut --help` for switch options. For these examples create a file (columns.txt) with the following command (`\t` = TAB character, `\n` = newline character):
 
     ```
     echo -e 'one\ttwo\tthree\nfour\tfive\tsix' > columns.txt
@@ -228,7 +228,7 @@ format:
 
 -   head/tail -- output the first/last part of a file. Default to 10 lines. -n switch can be used to specify the number of lines
 
--   fold -- wraps lines to a specific width, printing to terminal Ex: `echo 123456789 | fold -w 2 
+-   fold -- wraps lines to a specific width, printing to terminal Ex: `echo 123456789 | fold -w 2`
 
 - rev -- reverse input
 

@@ -3146,7 +3146,7 @@ vertical-align: -.125em;
 <li><p>Ex: <code>wc -m file.txt</code> (count the number of characters in file.txt)</p></li>
 </ul></li>
 <li><p>less – a “pager” program that allows you to read text one page at a time. Advance with <space>/b and quit with q</space></p></li>
-<li><p>cut – removes sections (bytes, characters, or fields) from input. See cut –help for switch options. For these examples create a file (columns.txt) with the following command (`<code>t</code> = TAB character, <code>\n</code> = newline character):</p>
+<li><p>cut – removes sections (bytes, characters, or fields) from input. See <code>cut --help</code> for switch options. For these examples create a file (columns.txt) with the following command (<code>\t</code> = TAB character, <code>\n</code> = newline character):</p>
 <pre><code>echo -e &#39;one\ttwo\tthree\nfour\tfive\tsix&#39; &gt; columns.txt
 </code></pre>
 <p>If you open the file you will see it is formatted like this:</p>
@@ -3163,7 +3163,7 @@ four five six</code></pre>
 <li>Ex: <code>echo 1235231443551 | fold -w 1 | sort | uniq</code></li>
 </ul></li>
 <li><p>head/tail – output the first/last part of a file. Default to 10 lines. -n switch can be used to specify the number of lines</p></li>
-<li><p>fold – wraps lines to a specific width, printing to terminal Ex: `echo 123456789 | fold -w 2</p></li>
+<li><p>fold – wraps lines to a specific width, printing to terminal Ex: <code>echo 123456789 | fold -w 2</code></p></li>
 <li><p>rev – reverse input</p>
 <ul>
 <li>Ex: <code>echo ATCGAA | rev | tr ATGC TACG</code></li>
