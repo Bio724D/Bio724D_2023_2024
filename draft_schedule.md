@@ -40,7 +40,7 @@
 
 ## Data lunch
 
-*class meets 12:00-1:00PM on Thursdays in Biological Sciences room 155*  
+*class meets 12:00-1:00PM on Thursdays in Biological Sciences room 248*  
 | session | date | topics |
 | ------- | ---- | ------ |
 | 01 | 31 AUG | instructor introductions and discussion |
