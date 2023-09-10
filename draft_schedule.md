@@ -40,7 +40,7 @@
 
 ## Data lunch
 
-*class meets 12:00-1:00PM on Thursdays in Biological Sciences room 155*  
+*class meets 12:00-1:00PM on Thursdays in Biological Sciences room 248*  
 | session | date | topics |
 | ------- | ---- | ------ |
 | 01 | 31 AUG | instructor introductions and discussion |
@@ -76,6 +76,3 @@
 | -- | 18 APR | no class (graduate classes end 17 APR) |speaker |
   
   
-**Ideas for domain-specific modules:** geospatial (?), genomes (many), functional genomics (many), images (Sherwood), ecology (Kerr), behavior (Alberts), population genetics (Willis), quantitative genetics (?), phylogenetics (Lutzoni)  
-**Ideas for faculty lunch speakers:** Gibert, Donohue, Schmid, D Sherwood, Baugh, Volkan, Wright, Yoder (want a mix of topics and approaches; should be cheerful interlocutors; aim for 4 per semester?)  
-**Ideas for trainee lunch speakers:** we will need about 8 per semester; a mix of more senior grad students and postdocs; could potentially draw speakers from other programs and departments
