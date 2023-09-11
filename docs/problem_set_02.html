@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignment 01: Working with Markdown in R; Basic numerical operations in R</title>
+<title>Problem Set 02: Common data types and data structures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3023,7 +3023,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 01: Working with Markdown in R; Basic numerical operations in R</h1>
+<h1 class="title">Problem Set 02: Common data types and data structures</h1>
 </div>
 
 
@@ -3038,8 +3038,8 @@ vertical-align: -.125em;
 
 </header>
 
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
 <p>Create a Quarto markdown document and answer the questions below using code blocks that generate the correct outputs. We encourage you to include explanatory text in your markdown document, however <strong>each of your solutions should show how to generate the answer using R code</strong>.</p>
 <p>Write “robust” solutions wherever possible. A good rule of thumb for judging whether your solution is appropriately “robust” is to ask yourself “If I added additional observations or variables to this data set, or if the order of variables changed, would my code still compute the right solution?”</p>
 <p>Make sure your markdown is nicely formatted – use headers, bullets, numbering, etc so that the structure of the document is clear.</p>
@@ -3050,119 +3050,90 @@ vertical-align: -.125em;
 </ul>
 <p>Submit both your markdown file (<code>.qmd</code>) and the generated HTML document (<code>.html</code>) via the Assignments submission section on Sakai.</p>
 </section>
-<section id="problems" class="level1">
-<h1>Problems</h1>
-<section id="getting-practice-with-markdown" class="level2">
-<h2 class="anchored" data-anchor-id="getting-practice-with-markdown">Getting practice with Markdown</h2>
+<section id="problems" class="level2">
+<h2 class="anchored" data-anchor-id="problems">Problems</h2>
+<section id="working-with-atomic-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-atomic-vectors">Working with atomic vectors</h3>
 <ol type="1">
-<li><p>Create an Quarto Markdown document that illustrates the following features of the Markdown format.</p>
-<p>For a detailed discussion of R Markdown formatting see the <a href="https://quarto.org/docs/authoring/markdown-basics.html">Quarto Manual</a>.</p>
-<p>Features of R Markdown to include:</p>
-<ul>
-<li><p>Includes a title and author (your name and NetID)</p></li>
-<li><p>Has first, second, and third level headers</p></li>
-<li><p>Includes a un-ordered list with at least two levels</p></li>
-<li><p>Includes an ordered (numbered) list with at least two levels</p></li>
-<li><p>Includes <em>emphasized</em> (italic), <strong>bold</strong>, and <code>verbatim</code> (monospaced) text.</p></li>
-<li><p>Includes a table</p></li>
-<li><p>Includes a hyperlink to a <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">website</a>.</p></li>
-<li><p>Includes a footnote<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p></li>
-</ul></li>
-</ol>
-</section>
-<section id="numerical-operations" class="level2">
-<h2 class="anchored" data-anchor-id="numerical-operations">Numerical operations</h2>
-<ol start="2" type="1">
-<li>Below are a series of numerical calculations involving common arithmetic operators (<code>+</code>, <code>^</code>, <code>%%</code>, etc) in R. Evaluate each of the following operations in its own code block and give a short explanation of what each operator does. We encourage you to use the R help here.</li>
+<li>If you combine values representing multiple data types during assignment, R will coerce them into the most general data type that makes sense. Use <code>typeof()</code> to check what data types the following assignments create. Did any of the data types or coercions surprise you? What is the most general data type of all (the one into which every other data type can be successfully coerced)?</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">2</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">2</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">2</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">^</span> <span class="dv">2</span> </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">%%</span> <span class="dv">3</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">%/%</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(27L, <span class="fl">3.14159</span>, <span class="dv">42</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">66</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.0</span>, 2L, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;two&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;FALSE&quot;</span>, <span class="dv">0</span>, F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Sometimes it’s useful to generate a vector composed of a pattern of numbers. Below are some assignment statements that automatically generate numeric vectors. Evaluate each statement and try substituting values to understand how each works. Based on your experimentation, write a brief definition of the functions <code>seq()</code> and <code>rep()</code>, including how each argument contributes to the overall pattern.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:-</span><span class="dv">5</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">200</span>, <span class="at">by =</span> <span class="dv">5</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">20</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="sc">-</span><span class="fl">1.5</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">times =</span> <span class="dv">3</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>), <span class="at">each =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
-<li>Evaluate the following two statements. Do they return the values you expected? Why or why not?</li>
+<li>R makes it easy to apply mathematical operations to every item in an atomic vector without using loops. Evaluate the following expressions and explain what is happening.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">+</span> <span class="dv">2</span>)<span class="sc">/</span><span class="dv">4-5</span>  </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">+</span> <span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">4-5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> p1 <span class="sc">*</span> <span class="fl">0.2</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(p1) </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>r3 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>BTW, be careful when carrying out arithmetic or logical operations on multiple vectors at once. If they are not of equal length, R will “recycle” values from the shorter vector. This can lead to unexpected results if you are not careful! The rules of recycling are not simple, so it’s generally a good idea to limit operations with multiple vectors to cases where you know they are of equal length – for instance columns in data frames.</p>
 <ol start="4" type="1">
-<li>Some common numerical operations are implemented as functions. Evaluate each of the following in its own code block and provide an explanation of what they do. Again, use the R help docs to aid your understanding.</li>
+<li>Square-bracket indexing can be used on either side of an assignment statement to access specific items in an atomic vector. Evaluate the assignment statement below to create atomic vector <code>my_vec</code>. Update the <code>9999</code> value in <code>my_vec</code> to <code>NA</code>. Then add extend the length of <code>my_vec</code> by adding two new values: <code>6</code> and <code>3</code>. Next, extract just the second, third, and fifth items and store them in a new vector called <code>new_vec</code>. Finally, replace all the <code>NA</code> values in <code>your_vec</code> with the value <code>0</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">10</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">^</span> <span class="fl">0.5</span> <span class="co"># compare to sqrt(10)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">10</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(<span class="fl">3.14</span>)  <span class="co"># R knows some common constants!</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cos</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">9999</span>, <span class="dv">2</span>, <span class="dv">9</span>)   <span class="co"># some programs use 9999 to represent missing data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>your_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="cn">NA</span>, <span class="dv">52</span>, <span class="dv">58</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">49</span>, <span class="dv">60</span>, <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="working-with-lists-and-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-lists-and-data-frames">Working with lists and data frames</h3>
 <ol start="5" type="1">
-<li>Some arithmetic operations can return irrational or invalid values. Evaluate each of the below in its own code block and explain each of the values returned.</li>
+<li>Evaluate the expression below to create <code>my_list</code>, then use <code>length()</code> to learn how many items are in it. What does R consider to be an item in a list? Next, separately extract the second item in <code>my_list</code> using <code>[ ]</code> and <code>[[ ]]</code> and assign each to a new variable. How does the method of indexing affect the type of the extracted data? Now try converting the two new variables into a floating point atomic vector using the function <code>as.double()</code>. Why does this only work with one of them?</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">27</span>, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), <span class="st">&quot;banana&quot;</span>, <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>))   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="6" type="1">
-<li>Binary relational operators allow you to test relationships between numerical values. They return <code>TRUE</code> or <code>FALSE</code> values (called “logicals” in R, often referred to as Booleans in other program languages). Evaluate the following examples in their own code blocks and provide a brief written explanation of what each operator does.</li>
+<li>Named lists provide another method of indexing. Create the list <code>study_sites</code> using the first statement below. Extract the information for the <code>grassy_meadow</code> study site using its name and assign it to a new variable. Now extract just the elevation (first item) and assign it to a different variable. If you wanted to compute the average elevation, this would be an awkward process. It’s usually much easier to work with data like these when they are in a data frame rather than a list of lists.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">2</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">2</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&lt;</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="dv">5</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&lt;=</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="dv">5</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&gt;=</span> (<span class="dv">3</span> <span class="sc">*</span> <span class="dv">3</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="dv">5</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">!=</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>study_sites <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;windy_ridge&quot;</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="dv">2235</span>, <span class="st">&quot;grassland&quot;</span>), </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;pine_valley&quot;</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="dv">1450</span>, <span class="st">&quot;forest&quot;</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;stoney_creek&quot;</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="dv">900</span>, <span class="st">&quot;stream&quot;</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;grassy_meadow&quot;</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="dv">1670</span>, <span class="st">&quot;grassland&quot;</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;oak_glen&quot;</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="dv">1302</span>, <span class="st">&quot;forest&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="7" type="1">
-<li><p>The following code will generate an error.</p>
-<p>To test this, start the code block with the following header:</p>
-<p><code>{r, error=TRUE}</code></p>
-<p>Adding <code>error=TRUE</code> to your code block header makes it so that errors do not stop execution of the rest of your notebook (see <a href="https://quarto.org/docs/computations/execution-options.html#output-options">Quarto options</a>).</p>
-<p>Explain why this code generates an error:</p></li>
+<li>Let’s move these values into a data frame. Simply applying <code>as.data.frame()</code> to <code>study_sites</code> doesn’t work, unfortunately. (Try it!) Since a data frame is a list of equal-length vectors, we can create one as follows: (1) construct three atomic vectors, one for each future column; (2) construct a list containing these vectors using <code>list()</code>; and (3) convert the list of vectors into a data frame using <code>as.data.frame()</code>. Values for the first step are provided below to save you some typing. Write your own code for the second and third steps. For the third step, use the help window to learn how to provide names for the columns with the optional <code>col.names</code> argument. Provide simple, descriptive names for the columns. Check the result using <code>class()</code>, which should return <code>&quot;data.frame&quot;</code>, and using <code>View()</code> to inspect the data frame visually.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="ot">=</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="dv">5</span>)  <span class="co"># generates an error</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vec_A <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;windy_ridge&quot;</span>, <span class="st">&quot;pine_valley&quot;</span>, <span class="st">&quot;stoney_creek&quot;</span>, <span class="st">&quot;grassy_meadow&quot;</span>, <span class="st">&quot;oak_glen&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>vec_B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2235</span>, <span class="dv">1450</span>, <span class="dv">900</span>, <span class="dv">1670</span>, <span class="dv">1302</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>vec_C <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;grassland&quot;</span>, <span class="st">&quot;forest&quot;</span>, <span class="st">&quot;stream&quot;</span>, <span class="st">&quot;grassland&quot;</span>, <span class="st">&quot;forest&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="8" type="1">
-<li>Evaluate each of the following statements in turn in its own code block. Do any of the answers you get surprise you? We’ll discuss these examples in class.</li>
+<li><p>Now that you have a fully-functioning data frame, use dollar-sign indexing to calculate the mean elevation across all study sites.</p></li>
+<li><p>Many functions return lists as their output. You will often want to extract specific values from those lists for plotting or further processing. Evaluate the assignment statements below. Inspect <code>sample1</code> and <code>sample2</code> and access help to understand what the <code>rnorm()</code> function does. Next, carry out a t-test and display the default results. To access individual items as needed, start by assigning the results to the variable <code>test_results</code>. Use <code>names()</code> to show the names of the values stored in the list that is returned. Using this information, use dollar-sign indexing to assign the p-value and the confidence interval to separate values.</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">10</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">4</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">10</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">sqrt</span>(<span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span>, <span class="dv">10</span>) <span class="co"># look up help for all.equal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate example data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sample1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sample2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># carry out a t-test</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(sample1, sample2)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># assign results to a variable</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(sample1, sample2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="simple-statistical-functions" class="level2">
-<h2 class="anchored" data-anchor-id="simple-statistical-functions">Simple statistical functions</h2>
-<ol start="9" type="1">
-<li><p>Ask 10 of your classmates to measure and report to you some anatomical feature of their limbs using appropriate scientific units (e.g. length of left index finger in millimeters). Report the feature you had them measure and create a vector with the reported values.</p></li>
-<li><p>Calculate the mean, median, variance, and standard deviation of the limb feature data you collected. Use the R help system to find the appropriate function names to calculate these statistics.</p></li>
-</ol>
-</section>
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Like this one!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main>
+</main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
