@@ -1,0 +1,372 @@
+---
+title: "Data Frames, Lists, and Indexing"
+author: "Bio724D: Fall 2023"
+date: today
+
+format: beamer
+aspectratio: 1610
+
+# Colors
+colortheme: bio724
+code-block-bg: "#f2f2f2"
+
+# Fonts 
+fontheme: default
+mainfont: Helvetica Light 
+mainfontoptions:
+  - BoldFont=Helvetica
+  - ItalicFont=Helvetica Light Oblique
+monofont: Inconsolata
+monofontoptions: 
+  - Scale=0.98
+
+# Other customizations most easily done in LaTeX itself
+include-in-header:
+  text: |
+    \setbeamerfont{title}{series=\bfseries}
+    \setbeamerfont{frametitle}{series=\bfseries}
+    \setbeamertemplate{itemize item}[circle]
+    \setbeamertemplate{itemize subitem}[square]
+
+execute:
+  echo: true
+  eval: false
+---
+
+
+
+## Review: Vectors
+
+### Structure
+
+* Homogeneous -- all items in a vector are of the same type
+* Ordered -- each item has a position in the vector
+
+### Indexing
+
+* For a vector of length $n$, the indices are $1 \dots n$ (1-indexing)
+* Indexing occurs using single brackets `[]`
+
+
+
+```{r}
+x <- c(2, 4, 6, -99, NA)  
+x[1]
+x[length(x)]  # robust way to get last element
+```
+
+**Question**: What is the type of the "NA" item in the vector example above?
+
+
+## Data Frames
+
+Data Frames represent tabular data. You can think of the columns of a data frame as an ordered collection of vectors.
+
+### Columns
+
+* Columns of a data frame represent variables
+* Columns must have names
+* Every item in a given column is of the same data type
+* Each column can have a different data type
+* Each column must be of the same number of rows
+
+### Rows
+
+* Rows represent observations/entities 
+* Each row is of the same length
+* A row is heterogeneous collection -- a data frame with a single observation
+
+
+## Constructing a data frame from scratch
+  
+```{r}
+#| eval: true
+name <- c("Paul", "Maira", "Peter", "Beatriz")
+grade <- c("C", "A", "B", "A-")
+age <- c(40, 12, 17, 52)
+
+example.df <- data.frame(name = name, 
+                         age = age, 
+                         grade = grade)
+example.df
+```
+
+## Data frames: Detail
+
+### Shape 
+
+```{r}
+dim(example.df)   # number of rows and columns
+nrow(example.df)  # number of rows
+ncol(example.df)  # number of columns
+```
+
+### Column names
+
+```{r}
+names(examples.df)
+```
+
+
+
+## Data frames: Indexing by position
+
+* Every element in a data frame is indexed by a row and a column position
+
+```{r}
+example.df[3, 2]  # row, column
+```
+
+* Get a single column by integer position
+
+```{r}
+example.df[2]  
+```
+
+* Get multiple columns using a vector of indices
+
+```{r}
+example.df[c(1,3)]
+```
+
+
+
+* Get a single row by integer position (not comma)
+
+```{r}
+example.df[2,]  # row 2
+```
+
+* Multiple rows uing vector of indices
+
+```{r}
+example.df[c(1,3), ]  # note comma
+```
+
+
+## Data frames: Indexing rows and columns simultaneously
+
+
+You can simultaneously index both rows and columns:
+
+```{r}
+example.df[c(1,3), c("name", "age")]
+```
+
+
+
+
+## Data frames: Column name indexing
+
+Indexing columns by name:
+
+```{r}
+example.df["grade"]
+```
+
+You can get multiple columns at a time by indexing with a vector of column names
+
+```{r}
+example.df[c("name","grade")]
+```
+
+## `$` operator
+
+
+The `$` operator followed by the name of a column **returns a vector** representing the values in the corresponding data frame column:
+
+```{r}
+example.df$grade 
+```
+
+* Note that when using the `$` operator you don't have to put the name of the column in quotes unless there are spaces in the name
+
+
+
+
+## Double bracket indexing
+
+The columns of a data frame can be accessed by double bracket indexing:
+
+```{r}
+example.df[[1]]
+```
+
+Like the `$` operator this returns a vector.
+
+## Boolean indexing 
+
+Both vectors and lists can be "Boolean indexed" -- given an indexing vector of logical (`TRUE`/`FALSE`) values, Boolean indexing returns all the elements where the indexing vector is `TRUE`
+
+* Vector example
+
+```{r}
+#| eval: TRUE
+x <- c(1, 2, 3, 4)
+x[c(TRUE, FALSE, FALSE, TRUE)]
+```
+
+* Data frame example
+
+```{r}
+#| eval: TRUE
+example.df[c(TRUE,FALSE,TRUE,FALSE), ]
+```
+
+## Boolean indexing, continued
+
+Boolean indexing is often used to filter or subset data
+
+* Example: subsetting the rows of a data frame
+
+```{r}
+#| eval: true
+# get all rows of data frame where persons age > 18
+is.adult <- example.df$age > 18
+is.adult
+example.df[is.adult, ]
+```
+
+Usually we'd write the above example like so:
+
+```{r}
+example.df[example.df$age > 18, ]
+```
+
+We'll see a cleaner syntax and more example of Boolean indexing and filtering when we introduce the dplyr package
+
+
+
+
+
+
+
+## Lists
+
+Lists are the most flexible built-in data structure in R.
+
+* Unlike vectors and data frames which have constraints on what they contain and the size of the respective elements, lists can contain arbitrary objects of any type and size (even other lists)
+
+
+```{r}
+bob <- list('Bob', 16, 27707)
+
+selena <- list('Selena', 'Montgomery', 17, 91324)
+
+people <- list(bob, selena)
+
+people
+```
+
+
+
+
+## List elements can have names
+
+```{r}
+bob <- list(first_name="Bob",
+            last_name="Gimli",
+            age=16, 
+            zip=27707)
+```
+
+The names of list elements can be accessed with the `names()` function similar to the columns in a data frame
+
+```{r}
+names(bob)
+```
+
+## Indexing Lists
+
+
+- Single brackets always **return a list** containing the element at index `i`
+
+
+```{r}
+bob[1]
+typeof(bob[1])
+```
+- Use double brackets (`[[]]`)to return the element at index `i`
+
+```{r}
+bob[[1]]
+typeof(bob[[1]])
+```
+
+- If the list has named objects they can be accessed via the `$` operator
+
+```{r}
+bob$last_name
+```
+
+- String indexing also works with lists
+
+```{r}
+bob[c("last_name", "first_name")]
+```
+
+
+
+Question: What happens when you index with an integer index or a name that doesn't exist?
+
+
+
+## Functions often return lists
+
+Many R functions that need to return multiple values of different types will return lists (or things that act like lists).  
+
+
+### Example
+
+```{r}
+#| eval: true
+#| output: false
+# draws a histogram but also return a list object
+# with useful information about what was drawn
+h <- hist(rnorm(100)) 
+```
+
+
+```{r}
+#| eval: true
+#| collapse: true
+names(h)
+
+# get break points for each bin and respective counts
+h$breaks
+h$counts
+```
+
+
+## Setting values in data structures using indexing
+
+The items in vectors, data frames, and lists can all be set or changed using the indexing operations described previously.
+
+* Vector example
+
+```{r}
+#| eval: true
+#| collapse: true
+v1 <- c(2, 4, 6, 8)
+v1
+v1[3] <- -99
+v1
+```
+
+## Setting values in data structures using indexing, cont.
+
+* Data frame example:
+
+```{r}
+#| eval: true
+#| collapse: true
+example.df
+```
+
+```{r}
+#| eval: true
+#| collapse: true
+example.df$middle_initial <- c("M", "M", "B", "S")
+example.df
+```
+
