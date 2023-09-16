@@ -1,0 +1,208 @@
+---
+title: "dplyr: summarizing and grouping"
+author: "Bio724D: Fall 2023"
+date: today
+
+format: beamer
+aspectratio: 1610
+
+df-print: kable
+
+# Colors
+colortheme: bio724
+code-block-bg: "#f2f2f2"
+
+# Fonts 
+#fontsize: 10pt
+fontheme: default
+mainfont: Helvetica Light 
+mainfontoptions:
+  - BoldFont=Helvetica
+  - ItalicFont=Helvetica Light Oblique
+monofont: Inconsolata
+
+# Other customizations most easily done in LaTeX itself
+include-in-header:
+  text: |
+    \setbeamerfont{title}{series=\bfseries}
+    \setbeamerfont{frametitle}{series=\bfseries}
+    \setbeamertemplate{itemize item}[circle]
+    \setbeamertemplate{itemize subitem}[square]
+
+execute:
+  echo: true
+  eval: false
+---
+
+```{r, echo=FALSE, eval=TRUE}
+library(tidyverse)
+```
+
+
+## Data set: Yeast colony morphology
+
+### Reference
+
+Granek, J. A., D. Murray, Ö. Kayıkçı, and P. M. Magwene. 2013. The genetic architecture of biofilm formation in a clinical isolate of *Saccharomyces cerevisiae*. Genetics 193(2):587-600.[https://doi.org/10.1534/genetics.112.142067](https://academic.oup.com/genetics/article/193/2/587/6065366)
+
+### Data availability on Dryad
+
+[Dryad link: https://doi.org/10.5061/dryad.mn71g](https://doi.org/10.5061/dryad.mn71g)
+
+
+### Brief description
+
+* 70 offspring from a genetic cross used to carry out QTL mapping
+* Genotype information at two major QTLs [grouping variable]
+* Organismal and molecular phenotypes such as colony complexity score, gene expression, concentration of cyclic AMP [discrete and continuous traits]
+
+\medskip
+![Yeast colonies](./colonies.png){width=33%}
+
+## Data set: Yeast colony morphology `seg_strain_table.csv`
+
+* See `README_for_seg_strain_table.csv` on [Dryad](https://datadryad.org/stash/dataset/doi:10.5061/dryad.mn71g) for explanation of columns
+
+### Load the data
+
+\medskip
+```{r, echo=TRUE, eval=TRUE}
+ccm <- read_csv("seg_strain_table.csv")
+```
+
+\medskip
+![A sample of rows from `seg_strain_table.csv`](./seg_strain_screenshot.png){width=90%}
+
+## Summarizing using `dplyr::summarize`
+
+* When used on an un-grouped data frame (see below) `dplyr::summarize` applies a function to one or more columns in a data frame, returning a new data frame with a single row
+
+* Data are "collapsed" across rows
+
+
+
+```{r}
+#| eval: true
+ccm |>
+  summarize(mean_cAMP = mean(cAMP, na.rm=TRUE))
+```
+
+
+## `summarize` can calculate multiple summaries simultaneously
+
+### Example 
+
+```{r}
+#| eval: true
+ccm |>
+  summarize(mean_cAMP = mean(cAMP, na.rm=TRUE),
+            mean_log2_Cyr1 = sd(log2(Cyr1.expr), na.rm=TRUE))
+```
+
+
+
+## Group assignment: Summarizing
+
+### Tukey's Five Number Summary
+
+John Tukey, an important 20th-century statistician and mathematician who is often consider one of the founders of Data Science, recommended that exploratory analyses of data always start with calculation of "five number" summary of key variables:
+
+1. Minimum
+2. First quartile (25th percentile)
+3. Median (50th percentile)
+4. Third quartile (75th percentile)
+5. Maximum
+
+### Assignment
+
+* Use the `dplyr::summary` to produce a 5-number summary of the `CM.a` variable from the yeast colony morphology data set
+
+* Hint: The function `quantile` may be useful here, among others.
+
+
+
+## Grouping using `dplyr::group_by`
+
+The function `group_by` "decorates" a data frame with grouping information that you specify
+
+* `group_by` by itself doesn't do any further calculations
+
+
+\medskip
+### Example
+
+```{r}
+#| eval: true
+#| output: false
+grouped_ccm <-
+  ccm |> 
+  group_by(Cyr1.geno)
+```
+
+
+
+
+## Grouping and Summarizing
+
+Once a data frame is grouped, `summarize` then applies it's functions in a group-wise manner
+
+\medskip
+### Example
+
+```{r}
+#| eval: true
+grouped_ccm |>
+  summarize(nobs = n(),
+            mean_cAMP = mean(cAMP, na.rm=TRUE),
+            sd_cAMP = sd(cAMP, na.rm=TRUE))
+```
+
+## Grouping: Multiple grouping variables can be used simultaneously
+
+
+```{r}
+#| eval: true
+ccm |>
+  group_by(Pool, Cyr1.geno) |>
+  summarize(nobs = n(),
+            mean_cAMP = mean(cAMP, na.rm=TRUE),
+            sd_cAMP = sd(cAMP, na.rm=TRUE))
+```
+
+## Grouping within rows using `dplyr::rowwise`
+
+Sometimes you need to apply a grouping of variables row-wise, such as when you have replicate measures of the same variable and you want to average those replicates.  `rowwise` applies grouping on a per-row basis.
+
+
+### Example
+
+\footnotesize
+```{r}
+#| eval: true
+ccm |>
+  rowwise() |>
+  mutate(AvgCM = mean(c(CM.a, CM.b, CM.c), na.rm=TRUE)) |>
+  ungroup() |>  # remove grouping info so slice_sample does what we want
+  slice_sample(n=5) |> 
+  select(Strain, Segregant, Pool, AvgCM)
+```
+\normalsize
+
+
+
+## Group Assignment: Using `rowwise`
+
+
+### Assignment
+
+* What does the call to `slice_sample()` do in the code above?
+
+* Repeat the calculation on the previous slide but leave out the call to `rowwise()` and compare the output. What happens? 
+
+* The variables `Adhes.a`, `Adhes.b`, and `Adhes.c` are replicate measures of how well each strain  adheres to plastic. 
+
+  a. Use `rowwise` and `mutate` to create a new column `AvgAdhes` representing the average `Adhes`  of each strain in the mapping population.
+  
+  b. Calculate the mean `AvgAdhes` for the data grouped by the `Pool` variable 
+
+
