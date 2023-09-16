@@ -136,7 +136,7 @@ The function `group_by` "decorates" a data frame with grouping information that 
 #| output: false
 grouped_ccm <-
   ccm |> 
-  group_by(Cyr1.geno)
+  group_by(Pool)
 ```
 
 
@@ -169,6 +169,11 @@ ccm |>
             sd_cAMP = sd(cAMP, na.rm=TRUE))
 ```
 
+## Group Assignment: Grouping and summarizing
+
+* Calculate a five-number summary of the `CM.a` variable, grouped by `Cyr1.geno` and `Pool`
+
+
 ## Grouping within rows using `dplyr::rowwise`
 
 Sometimes you need to apply a grouping of variables row-wise, such as when you have replicate measures of the same variable and you want to average those replicates.  `rowwise` applies grouping on a per-row basis.
@@ -181,10 +186,10 @@ Sometimes you need to apply a grouping of variables row-wise, such as when you h
 #| eval: true
 ccm |>
   rowwise() |>
-  mutate(AvgCM = mean(c(CM.a, CM.b, CM.c), na.rm=TRUE)) |>
+  mutate(AvgAdhes = mean(c(Adhes.a, Adhes.b, Adhes.c), na.rm=TRUE)) |>
   ungroup() |>  # remove grouping info so slice_sample does what we want
   slice_sample(n=5) |> 
-  select(Strain, Segregant, Pool, AvgCM)
+  select(Strain, Segregant, AvgAdhes)
 ```
 \normalsize
 
@@ -199,10 +204,8 @@ ccm |>
 
 * Repeat the calculation on the previous slide but leave out the call to `rowwise()` and compare the output. What happens? 
 
-* The variables `Adhes.a`, `Adhes.b`, and `Adhes.c` are replicate measures of how well each strain  adheres to plastic. 
-
-  a. Use `rowwise` and `mutate` to create a new column `AvgAdhes` representing the average `Adhes`  of each strain in the mapping population.
+*  Use `rowwise` and `mutate` to create a new column `AvgCM` representing the average `CM`  of each strain in the mapping population.
   
-  b. Calculate the mean `AvgAdhes` for the data grouped by the `Pool` variable 
+* Calculate five number summaries of `AvgCM` for the data grouped by `Cyr1.geno` and `Pool`
 
 
