@@ -6,7 +6,7 @@ date: today
 format: 
   html:
     df-print: paged
-    toc: false
+    toc: true
     toc-depth: 3    
     toc-expand: 3
     code-line-numbers: false
@@ -14,9 +14,9 @@ format:
   revealjs:
     df-print: paged
     scrollable: true
-    embed-resources: true  
     slide-level: 2
     code-line-numbers: false
+    embed-resources: true  
     output-file: factors_pivoting_revealjs.html    
 execute:
   echo: true
@@ -36,30 +36,34 @@ set.seed(20231005)
 
 # Data
 
+##
 ::: {.callout-note collapse="true"}
 ## Yeast data for examples
 
-Yeast colony morphology related  data from Granek et al. 2013
+Yeast colony morphology data from Granek et al. 2013:
 
 ```{r}
 data_URL <- "https://tinyurl.com/36h67mhm"
 yeast <- read_csv(data_URL)
-yeast
+head(yeast)
 ```
 :::
 
 
-## Factors
+# Factors
 
+##
 ::: {.callout-note collapse="true"}
 ## Factors in R
 
-* Factors represent are used categorical variables in R. They are a unique data type that under the hood maps character strings to integers.  
+* Factors represent typically represent categorical variables in R. They are a unique data type that under the hood maps character strings to integers.  
 
 * Factors can be ordered or unordered
+
 :::
 
 
+##
 ::: {.callout-note collapse="true"}
 ### Creating factors from scratch
 
@@ -71,19 +75,14 @@ flavors <- factor(c("sweet","sour", "sweet", "salty"))
 sizes <- factor(c("small", "small", "tiny", "large", "medium"), 
                 levels = c("tiny", "small", "medium", "large"),
                 ordered = TRUE)
-```
 
-
-
-```{r}
 flavors
-```
 
-```{r}
 sizes
 ```
 :::
 
+##
 ::: {.callout-important collapse="true"}
 ### ★ Factors: Your turn
 
@@ -112,6 +111,7 @@ flavors < "sweet"
 ```
 :::
 
+##
 ::: {.callout-note collapse="true"}
 ### Factors from continuous data
 
@@ -129,7 +129,7 @@ factored_x
 ```
 :::
 
-
+##
 ::: {.callout-important collapse="true"}
 ### ★ Factoring example: Your turn
 
@@ -187,8 +187,9 @@ yeast |>
 
 
 
-## Pivoting
+# Pivoting
 
+##
 ::: {.callout-note collapse="true"}
 ## Pivoting
 
@@ -201,9 +202,11 @@ Pivoting is the act of reshaping our data to make it "longer" or "wider"
 * wider = more columns, fewer rows
 
   * Pivoting to make our data wider is usually done when it's useful to take entries in one or more columns and turn those into column headers (variable names) and take corresponding entries from other columns and make those the values in the new column
+
 :::
 
 
+##
 ::: {.callout-note collapse="true"}
 ### Pivot longer example
 
@@ -236,7 +239,7 @@ long_cm
 ```
 :::
 
-
+##
 ::: {.callout-note collapse="true"}
 ### Pivot longer example, cont.
 
@@ -255,6 +258,7 @@ long_cm
 :::
 
 
+##
 ::: {.callout-important collapse="true"}
 ### ★ Pivot longer: Your turn
 
@@ -291,6 +295,7 @@ yeast |>
 :::
 
 
+##
 ::: {.callout-note collapse="true"}
 ### Pivot wider example
 
@@ -306,7 +311,7 @@ long_cm |>
 ```
 :::
 
-
+##
 ::: {.callout-note collapse="true"}
 ### Pivoting long and wide
 
@@ -318,7 +323,8 @@ Sometimes it's useful to combined both long and wide pivoting. This is illustrat
 cm_and_adhes <-
   yeast |>
     select(Strain, Pool, CM.a:CM.c, Adhes.a:Adhes.c) 
-cm_and_adhes
+
+head(cm_and_adhes)
 
 # pivot longer
 long_yeast <- 
@@ -327,13 +333,15 @@ long_yeast <-
               names_sep = "\\.",  # split on the period in column names
               names_to = c("Phenotype", "Replicate"),
               values_to = c("Value")) 
-long_yeast
+
+head(long_yeast)
 
 # pivot wider
 long_then_wide_yeast <-
   long_yeast |>
   pivot_wider(names_from = "Phenotype", values_from = "Value")
-long_then_wide_yeast
+
+head(long_then_wide_yeast)
 ```
 
 As can be seen above, in this case we lengthened than widened, but we generated a different data structure than we started with.  This new data frame allows us to generate figures like the following:
