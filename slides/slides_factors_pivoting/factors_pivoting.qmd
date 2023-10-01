@@ -5,6 +5,7 @@ date: today
 
 format: 
   html:
+    theme: [default, custom.scss]
     df-print: paged
     toc: true
     toc-depth: 3    
@@ -12,7 +13,7 @@ format:
     code-line-numbers: false
     embed-resources: true  
   revealjs:
-    theme: simple
+    theme: [simple, custom.scss]
     df-print: paged
     scrollable: true
     slide-level: 2
@@ -68,6 +69,8 @@ head(yeast)
 ::: {.callout-note collapse="true"}
 ### Creating factors from scratch
 
+The code below illustrates the process of creating factor vectors by hand:
+
 ```{r}
 # unordered factor
 flavors <- factor(c("sweet","sour", "sweet", "salty"))
@@ -78,7 +81,6 @@ sizes <- factor(c("small", "small", "tiny", "large", "medium"),
                 ordered = TRUE)
 
 flavors
-
 sizes
 ```
 :::
