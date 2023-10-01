@@ -220,7 +220,7 @@ First, let's create a small example data frame to make it easier to see what piv
 ```{r}
 cm_example <-
   yeast |>
-  select(Strain, Pool, CM.a:CM.c) |>
+  select(Strain, CM.a:CM.c) |>
   slice_sample(n=2)
 
 cm_example
@@ -323,7 +323,7 @@ Sometimes it's useful to combined both long and wide pivoting. This is illustrat
 # subset data to focal columns for illustration
 cm_and_adhes <-
   yeast |>
-    select(Strain, Pool, CM.a:CM.c, Adhes.a:Adhes.c) 
+    select(Strain, CM.a:CM.c, Adhes.a:Adhes.c) 
 
 head(cm_and_adhes)
 

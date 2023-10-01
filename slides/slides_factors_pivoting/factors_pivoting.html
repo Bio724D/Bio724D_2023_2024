@@ -4624,7 +4624,7 @@ Pivot longer example
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cm_example <span class="ot">&lt;-</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  yeast <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Strain, Pool, CM.a<span class="sc">:</span>CM.c) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Strain, CM.a<span class="sc">:</span>CM.c) <span class="sc">|&gt;</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n=</span><span class="dv">2</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>cm_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4632,7 +4632,7 @@ Pivot longer example
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pool"],"name":[2],"type":["chr"],"align":["left"]},{"label":["CM.a"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CM.b"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CM.c"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"C","3":"2.8","4":"2.8","5":"3.3"},{"1":"PMY1278","2":"C","3":"4.3","4":"3.9","5":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CM.a"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CM.b"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CM.c"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"2.8","3":"2.8","4":"3.3"},{"1":"PMY1278","2":"4.3","3":"3.9","4":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4650,7 +4650,7 @@ Pivot longer example
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pool"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Value"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"C","3":"CM.a","4":"2.8"},{"1":"PMY1277","2":"C","3":"CM.b","4":"2.8"},{"1":"PMY1277","2":"C","3":"CM.c","4":"3.3"},{"1":"PMY1278","2":"C","3":"CM.a","4":"4.3"},{"1":"PMY1278","2":"C","3":"CM.b","4":"3.9"},{"1":"PMY1278","2":"C","3":"CM.c","4":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Value"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"CM.a","3":"2.8"},{"1":"PMY1277","2":"CM.b","3":"2.8"},{"1":"PMY1277","2":"CM.c","3":"3.3"},{"1":"PMY1278","2":"CM.a","3":"4.3"},{"1":"PMY1278","2":"CM.b","3":"3.9"},{"1":"PMY1278","2":"CM.c","3":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4687,7 +4687,7 @@ Pivot longer example, cont.
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pool"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Phenotype"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"C","3":"CM","4":"a","5":"2.8"},{"1":"PMY1277","2":"C","3":"CM","4":"b","5":"2.8"},{"1":"PMY1277","2":"C","3":"CM","4":"c","5":"3.3"},{"1":"PMY1278","2":"C","3":"CM","4":"a","5":"4.3"},{"1":"PMY1278","2":"C","3":"CM","4":"b","5":"3.9"},{"1":"PMY1278","2":"C","3":"CM","4":"c","5":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Phenotype"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Value"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"CM","3":"a","4":"2.8"},{"1":"PMY1277","2":"CM","3":"b","4":"2.8"},{"1":"PMY1277","2":"CM","3":"c","4":"3.3"},{"1":"PMY1278","2":"CM","3":"a","4":"4.3"},{"1":"PMY1278","2":"CM","3":"b","4":"3.9"},{"1":"PMY1278","2":"CM","3":"c","4":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4752,7 +4752,7 @@ Pivot wider example
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pool"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Phenotype"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"C","3":"CM","4":"a","5":"2.8"},{"1":"PMY1277","2":"C","3":"CM","4":"b","5":"2.8"},{"1":"PMY1277","2":"C","3":"CM","4":"c","5":"3.3"},{"1":"PMY1278","2":"C","3":"CM","4":"a","5":"4.3"},{"1":"PMY1278","2":"C","3":"CM","4":"b","5":"3.9"},{"1":"PMY1278","2":"C","3":"CM","4":"c","5":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Phenotype"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Value"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"CM","3":"a","4":"2.8"},{"1":"PMY1277","2":"CM","3":"b","4":"2.8"},{"1":"PMY1277","2":"CM","3":"c","4":"3.3"},{"1":"PMY1278","2":"CM","3":"a","4":"4.3"},{"1":"PMY1278","2":"CM","3":"b","4":"3.9"},{"1":"PMY1278","2":"CM","3":"c","4":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4763,7 +4763,7 @@ Pivot wider example
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pool"],"name":[2],"type":["chr"],"align":["left"]},{"label":["CM_a"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CM_b"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CM_c"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"C","3":"2.8","4":"2.8","5":"3.3"},{"1":"PMY1278","2":"C","3":"4.3","4":"3.9","5":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CM_a"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CM_b"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CM_c"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1277","2":"2.8","3":"2.8","4":"3.3"},{"1":"PMY1278","2":"4.3","3":"3.9","4":"3.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4791,14 +4791,14 @@ Pivoting long and wide
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset data to focal columns for illustration</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>cm_and_adhes <span class="ot">&lt;-</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  yeast <span class="sc">|&gt;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Strain, Pool, CM.a<span class="sc">:</span>CM.c, Adhes.a<span class="sc">:</span>Adhes.c) </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Strain, CM.a<span class="sc">:</span>CM.c, Adhes.a<span class="sc">:</span>Adhes.c) </span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cm_and_adhes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pool"],"name":[2],"type":["chr"],"align":["left"]},{"label":["CM.a"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CM.b"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["CM.c"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Adhes.a"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Adhes.b"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Adhes.c"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1235","2":"S","3":"1","4":"1","5":"1","6":"0.0987","7":"0.1035","8":"0.1087"},{"1":"PMY1236","2":"S","3":"1","4":"1","5":"1","6":"0.0903","7":"0.1352","8":"0.1022"},{"1":"PMY1237","2":"S","3":"1","4":"1","5":"1","6":"0.0870","7":"0.2564","8":"0.2591"},{"1":"PMY1238","2":"S","3":"1","4":"1","5":"1","6":"0.0470","7":"0.1497","8":"0.1119"},{"1":"PMY1239","2":"S","3":"1","4":"1","5":"1","6":"0.1522","7":"0.1735","8":"0.1511"},{"1":"PMY1240","2":"S","3":"1","4":"1","5":"1","6":"0.1004","7":"0.1964","8":"0.1740"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CM.a"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CM.b"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["CM.c"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Adhes.a"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Adhes.b"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Adhes.c"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1235","2":"1","3":"1","4":"1","5":"0.0987","6":"0.1035","7":"0.1087"},{"1":"PMY1236","2":"1","3":"1","4":"1","5":"0.0903","6":"0.1352","7":"0.1022"},{"1":"PMY1237","2":"1","3":"1","4":"1","5":"0.0870","6":"0.2564","7":"0.2591"},{"1":"PMY1238","2":"1","3":"1","4":"1","5":"0.0470","6":"0.1497","7":"0.1119"},{"1":"PMY1239","2":"1","3":"1","4":"1","5":"0.1522","6":"0.1735","7":"0.1511"},{"1":"PMY1240","2":"1","3":"1","4":"1","5":"0.1004","6":"0.1964","7":"0.1740"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4815,7 +4815,7 @@ Pivoting long and wide
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pool"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Phenotype"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1235","2":"S","3":"CM","4":"a","5":"1.0000"},{"1":"PMY1235","2":"S","3":"CM","4":"b","5":"1.0000"},{"1":"PMY1235","2":"S","3":"CM","4":"c","5":"1.0000"},{"1":"PMY1235","2":"S","3":"Adhes","4":"a","5":"0.0987"},{"1":"PMY1235","2":"S","3":"Adhes","4":"b","5":"0.1035"},{"1":"PMY1235","2":"S","3":"Adhes","4":"c","5":"0.1087"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Phenotype"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Value"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1235","2":"CM","3":"a","4":"1.0000"},{"1":"PMY1235","2":"CM","3":"b","4":"1.0000"},{"1":"PMY1235","2":"CM","3":"c","4":"1.0000"},{"1":"PMY1235","2":"Adhes","3":"a","4":"0.0987"},{"1":"PMY1235","2":"Adhes","3":"b","4":"0.1035"},{"1":"PMY1235","2":"Adhes","3":"c","4":"0.1087"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4829,7 +4829,7 @@ Pivoting long and wide
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pool"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[3],"type":["chr"],"align":["left"]},{"label":["CM"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Adhes"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1235","2":"S","3":"a","4":"1","5":"0.0987"},{"1":"PMY1235","2":"S","3":"b","4":"1","5":"0.1035"},{"1":"PMY1235","2":"S","3":"c","4":"1","5":"0.1087"},{"1":"PMY1236","2":"S","3":"a","4":"1","5":"0.0903"},{"1":"PMY1236","2":"S","3":"b","4":"1","5":"0.1352"},{"1":"PMY1236","2":"S","3":"c","4":"1","5":"0.1022"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Strain"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Replicate"],"name":[2],"type":["chr"],"align":["left"]},{"label":["CM"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Adhes"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"PMY1235","2":"a","3":"1","4":"0.0987"},{"1":"PMY1235","2":"b","3":"1","4":"0.1035"},{"1":"PMY1235","2":"c","3":"1","4":"0.1087"},{"1":"PMY1236","2":"a","3":"1","4":"0.0903"},{"1":"PMY1236","2":"b","3":"1","4":"0.1352"},{"1":"PMY1236","2":"c","3":"1","4":"0.1022"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
