@@ -12,6 +12,7 @@ format:
     code-line-numbers: false
     embed-resources: true  
   revealjs:
+    theme: simple
     df-print: paged
     scrollable: true
     slide-level: 2
