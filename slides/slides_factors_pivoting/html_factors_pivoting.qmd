@@ -1,0 +1,313 @@
+---
+title: "Factors and Pivoting in R"
+author: "Bio724D: Fall 2023"
+date: today
+
+format: 
+  html:
+    df-print: paged
+    toc: true
+    toc-depth: 3    
+    toc-expand: 3
+    embed-resources: true    
+execute:
+  echo: true
+  eval: true
+  warning: false
+---
+
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyverse)
+library(knitr)
+set.seed(20231005)
+```
+
+## Data for examples
+
+Yeast colony morphology related  data from Granek et al. 2013
+
+```{r}
+#| output: false
+data_URL <- "https://tinyurl.com/36h67mhm"
+yeast <- read_csv(data_URL)
+yeast
+```
+
+## Factors
+
+* Factors represent are used categorical variables in R. They are a unique data type that under the hood maps character strings to integers.  
+
+* Factors can be ordered or unordered
+
+### Creating factors from scratch
+
+```{r}
+# unordered factor
+flavors <- factor(c("sweet","sour", "sweet", "salty"))
+
+# ordered factor
+sizes <- factor(c("small", "small", "tiny", "large", "medium"), 
+                levels = c("tiny", "small", "medium", "large"),
+                ordered = TRUE)
+```
+
+
+```{r}
+flavors
+```
+
+```{r}
+sizes
+```
+
+### ★ Factors: Your turn
+
+What behaviors do you observe in the examples below?
+
+* Example A
+
+```{r}
+#| eval: false
+flavors <- factor(c("sweet","sour","salty", "sour"))
+flavors[3] <- "umami"
+```
+
+* Example B
+
+```{r}
+#| eval: false
+sizes < "medium"
+```
+
+* Example C
+  
+```{r}
+#| eval: false
+flavors < "sweet"
+```
+
+### Factors from continuous data
+
+The `cut` function is useful for turning numerical data into factors. The key arguments are the `breaks` specifying the intervals for binning the data and the `labels` indicating the factor categories you want to create.
+
+
+```{r}
+x <- 1:10
+x
+factored_x <- cut(x, 
+                  breaks = c(0, 4, 7, 10), 
+                  labels = c("small","medium","large"),
+                  ordered_result = TRUE)
+factored_x
+```
+
+
+### ★ Factoring example: Your turn
+
+A plot of the `Flo11.expr` (FLO11 expression data) hints at two or three modes in the distribution, as illustrated below:
+
+
+```{r, fig.align='center',fig.width=6, fig.height=4, out.width="70%"}
+#| echo: false
+ggplot(yeast, aes(x = Flo11.expr)) + 
+  geom_histogram(bins = 11) +
+  geom_rug() + 
+  geom_vline(xintercept = 1e5, linetype="dashed", color="red")+
+  geom_vline(xintercept = 3e5, linetype="dashed", color="red")+
+  labs(x = "FLO11 Expression", y = "Count") +
+  annotate(geom="text", x=0, y=18, label="Low", color="red") +
+  annotate(geom="text", x=2e5, y=18, label="Intermediate", color="red") +
+  annotate(geom="text", x=4e5, y=18, label="High", color="red")
+```
+
+
+Complete the following code to create an ordered factor with the  categories "Low", "Intermediate", and "High", indicating a coarse categorization of FLO11 expression as illustrated in the figure above:
+
+
+```{r}
+#| echo: true
+#| eval: false
+yeast |>
+  mutate(Flo11.group = cut(
+    ## your code here
+  ) |>
+  filter(!is.na(Flo11.group)) |>
+  ggplot(aes(x = Flo11.group, y = Flo11.expr)) + 
+  geom_point(alpha=0.5) + 
+  labs(x = "FLO11 Factor", y = "FLO11 Expression")
+```
+
+If correct, your code should produce the following output:
+
+```{r, fig.align='center',fig.width=6, fig.height=4, out.width="75%"}
+#| echo: false
+yeast |>
+  mutate(Flo11.group = cut(Flo11.expr,
+                 breaks = c(0, 1e5, 3e5, 7e5),
+                 labels = c("Low", "Intermediate", "High"),
+                 ordered_result = TRUE)) |>
+  filter(!is.na(Flo11.group)) |>
+  ggplot(aes(x = Flo11.group, y = Flo11.expr)) + 
+    geom_point(alpha=0.5) + 
+    labs(x = "FLO11 Group", y = "FLO11 Expression")
+```
+
+
+
+
+
+
+
+
+## Pivoting
+
+Pivoting is the act of reshaping our data to make it "longer" or "wider"
+
+* longer = fewer columns, more rows
+
+  * Pivoting to make our data longer is frequently done when there is information in column names that we want to treat as variable values for the purposes of grouping, plotting, faceting, etc.
+
+* wider = more columns, fewer rows
+
+  * Pivoting to make our data wider is usually done when it's useful to take entries in one or more columns and turn those into column headers (variable names) and take corresponding entries from other columns and make those the values in the new column
+
+
+
+### Pivot longer example
+
+* `tidyr::pivot_longer` is the core function for long pivoting
+
+
+First, let's create a small example data frame to make it easier to see what pivoting is doing:
+
+
+```{r}
+cm_example <-
+  yeast |>
+  select(Strain, Pool, CM.a:CM.c) |>
+  slice_sample(n=2)
+
+cm_example
+```
+
+Now we pivot wider on the replicate "CM" (colony morphology) columns.  Note that the information in the headers become entries in the "Replicate" column:
+
+
+```{r}
+long_cm <- 
+  cm_example |> 
+  pivot_longer(starts_with("CM."),
+              names_to = c("Replicate"),
+              values_to = c("Value"))
+
+long_cm
+```
+
+
+
+### Pivot longer example, cont.
+
+Note that after pivoting, our new "Replicate" column actually contains two pieces of information. The "CM" prefix indicates what the phenotype was, while the letters "a", "b", and "c" indicate the replicate.  We can improve on the prior code as follows:
+
+```{r}
+long_cm <- 
+  cm_example |> 
+  pivot_longer(starts_with("CM."),
+              names_sep = "\\.",  # split on the period in column nanmes
+              names_to = c("Phenotype", "Replicate"),
+              values_to = c("Value"))
+
+long_cm
+```
+
+### ★ Pivot longer: Your turn
+
+Modify the code below to generate the figure that follows, showing how the distribution of the adhesiveness phenotype (`Adhes.`) differs across replicates:
+
+
+```{r}
+#| echo: true
+#| eval: false
+yeast |>
+  pivot_longer(
+    # your code here
+  ) |>
+  ggplot(aes(x = Value, fill = Replicate)) + 
+  geom_histogram(bins=11) +
+  labs(x = "Adhesiveness", y = "Count") +
+  facet_grid(rows = vars(Replicate))
+```
+
+```{r}
+#| echo: false
+yeast |>
+  pivot_longer(starts_with("Adhes."),
+              names_sep = "\\.",  # split on the period in column names
+              names_to = c("Phenotype", "Replicate"),
+              values_to = c("Value")) |>
+  ggplot(aes(x = Value, fill = Replicate)) + 
+  geom_histogram(bins=11) +
+  labs(x = "Adhesiveness", y = "Count") +
+  facet_grid(rows = vars(Replicate))
+```
+
+**Question**: Why might such a plot be useful when considering replicate data? What does the above figure imply about the adhesiveness data?
+
+
+### Pivot wider example
+
+Pivot wider spreads column data into rows.  For example, we can re-widen our previous example as follows:
+
+
+```{r}
+long_cm
+
+long_cm |>
+  pivot_wider(names_from = c("Phenotype", "Replicate"),
+              values_from = "Value")
+```
+
+
+### Pivoting long and wide
+
+Sometimes it's useful to combined both long and wide pivoting. This is illustrated in the example below where we compare the relationship between the colony morphology scores (`CM`) and adhesiveness (`Adhes`) across replicates.
+
+
+```{r}
+# subset data to focal columns for illustration
+cm_and_adhes <-
+  yeast |>
+    select(Strain, Pool, CM.a:CM.c, Adhes.a:Adhes.c) 
+cm_and_adhes
+
+# pivot longer
+long_yeast <- 
+  cm_and_adhes |>
+  pivot_longer(starts_with(c("CM.","Adhes.")),
+              names_sep = "\\.",  # split on the period in column names
+              names_to = c("Phenotype", "Replicate"),
+              values_to = c("Value")) 
+long_yeast
+
+# pivot wider
+long_then_wide_yeast <-
+  long_yeast |>
+  pivot_wider(names_from = "Phenotype", values_from = "Value")
+long_then_wide_yeast
+```
+
+As can be seen above, in this case we lengthened than widened, but we generated a different data structure than we started with.  This new data frame allows us to generate figures like the following:
+
+```{r, fig.width=4, fig.height=6, out.width="60%", fig.align="center"}
+long_then_wide_yeast |>
+  ggplot(aes(x = CM, y = Adhes, color = Replicate)) + 
+  geom_point(alpha=0.5) +
+  facet_grid(rows = vars(Replicate)) + 
+  labs(x = "Colony Morphology Score",
+       y = "Adhesivness")
+```
+
+
