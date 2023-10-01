@@ -1,0 +1,262 @@
+---
+title: "Factors and Pivoting in R"
+author: "Bio724D: Fall 2023"
+date: today
+
+format: 
+  beamer:
+    df-print: default
+    
+aspectratio: 1610
+
+# Colors
+colortheme: bio724
+code-block-bg: "#f2f2f2"
+
+# Fonts 
+fontheme: default
+mainfont: Helvetica Light 
+mainfontoptions:
+  - BoldFont=Helvetica
+  - ItalicFont=Helvetica Light Oblique
+monofont: Inconsolata
+
+# Other customizations most easily done in LaTeX itself
+include-in-header:
+  text: |
+    \setbeamerfont{title}{series=\bfseries}
+    \setbeamerfont{frametitle}{series=\bfseries}
+    \setbeamertemplate{itemize item}[circle]
+    \setbeamertemplate{itemize subitem}[square]
+
+execute:
+  echo: true
+  eval: true
+---
+
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(knitr)
+set.seed(20231005)
+```
+
+## Data for examples
+
+Yeast colony morphology related  data from Granek et al. 2013
+
+```{r}
+data_URL <- "https://tinyurl.com/36h67mhm"
+yeast <- read_csv(data_URL)
+```
+
+## Yeast data
+
+<!-- \footnotesize -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- yeast -->
+<!-- ``` -->
+<!-- \normalsize -->
+
+![A sample of rows from `seg_strain_table.csv`](./seg_strain_screenshot.png){width=100%}
+
+## Factors
+
+* Factors represent are used categorical variables in R. They are a unique data type that under hood maps character strings to integers.  
+
+* Factors can be ordered or unordered
+
+## Creating factors from scratch
+
+```{r}
+# unordered factor
+flavors <- factor(c("sweet","sour", "sweet", "salty"))
+
+# ordered factor
+sizes <- factor(c("small", "small", "tiny", "large", "medium"), 
+                levels = c("tiny", "small", "medium", "large"),
+                ordered = TRUE)
+```
+
+
+```{r}
+flavors
+```
+
+```{r}
+sizes
+```
+
+## Factors: Your turn
+
+What behaviors do you observe in the examples below?
+
+```{r}
+flavors <- factor(c("sweet","sour", "sweet", "salty"))
+
+sizes <- factor(c("small", "small", "tiny", "large", "medium"), 
+                levels = c("tiny", "small", "medium", "large"),
+                ordered = TRUE)
+```
+
+
+* Example A
+```{r}
+#| eval: false
+flavors <- factor(c("sweet","sour","salty", "sour"))
+flavors[3] <- "umami"
+```
+
+* Example B
+
+```{r}
+#| eval: false
+sizes < "medium"
+```
+
+* Example C
+  
+```{r}
+#| eval: false
+flavors < "sweet"
+```
+
+## Factors from continuous data
+
+\footnotesize
+```{r}
+x <- 1:10
+x
+factored_x <- cut(x, 
+                  breaks = c(0, 4, 7, 10), 
+                  labels = c("small","medium","large"),
+                  ordered_result = TRUE)
+factored_x
+```
+\normalsize
+
+## Factoring example
+
+```{r, fig.align='center',fig.width=6, fig.height=4, out.width="70%"}
+#| echo: false
+ggplot(yeast, aes(x = Flo11.expr)) + 
+  geom_histogram(bins = 11) +
+  geom_rug() + 
+  geom_vline(xintercept = 1e5, linetype="dashed", color="red")+
+  geom_vline(xintercept = 3e5, linetype="dashed", color="red")+
+  labs(x = "FLO11 Expression", y = "Count") +
+  annotate(geom="text", x=0, y=18, label="Low", color="red") +
+  annotate(geom="text", x=2e5, y=18, label="Intermediate", color="red") +
+  annotate(geom="text", x=4e5, y=18, label="High", color="red")
+```
+
+## Factoring example: Your turn
+
+\small
+Complete the following code to create an ordered factor, and corresponding figure, representing FLO11 expression categories:
+
+
+\footnotesize
+```{r}
+#| echo: true
+#| eval: false
+yeast |>
+  mutate(Flo11.group = cut(
+    ## your code here
+  ) |>
+  filter(!is.na(Flo11.group)) |>
+  ggplot(aes(x = Flo11.group, y = Flo11.expr)) + 
+  geom_point(alpha=0.5) + 
+  labs(x = "FLO11 Factor", y = "FLO11 Expression")
+```
+\normalsize
+
+
+```{r, fig.align='center',fig.width=6, fig.height=4, out.width="40%"}
+#| echo: false
+yeast |>
+  mutate(Flo11.group = cut(Flo11.expr,
+                 breaks = c(0, 1e5, 3e5, 7e5),
+                 labels = c("Low", "Medium", "High"),
+                 ordered_result = TRUE)) |>
+  filter(!is.na(Flo11.group)) |>
+  ggplot(aes(x = Flo11.group, y = Flo11.expr)) + 
+    geom_point(alpha=0.5) + 
+    labs(x = "FLO11 Group", y = "FLO11 Expression")
+```
+
+
+
+
+
+
+
+
+## Pivoting
+
+Pivoting is the act of reshaping our data to make it "longer" or "wider"
+
+* longer = fewer columns, more rows
+
+  * Pivoting to make our data longer is frequently done when there is information in column names that we want to treat as variable values for the purposes of grouping, plotting, faceting, etc.
+
+* wider = more columns, fewer rows
+
+  * Pivoting to make our data wider is usually done when it's useful to take entries in one or more columns and turn those into column headers (variable names) and take corresponding entries from other columns and make those the values in the new column
+
+
+
+## Pivot longer example
+
+* `tidyr::pivot_longer` is the core function for long pivoting
+
+\bigskip
+
+\footnotesize
+
+::::  {.columns align=center}
+
+::: {.column width="50%"}
+```{r}
+cm_example <-
+  yeast |>
+  select(Strain, Pool, CM.a:CM.c) |>
+  slice_sample(n=2)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+kable(cm_example)
+```
+:::
+:::: 
+
+\bigskip
+
+
+::::  {.columns align=center}
+::: {.column width="50%"}
+```{r}
+long_cm <- 
+  cm_example |> 
+  pivot_longer(starts_with("CM."),
+              names_to = c("Replicate"),
+              values_to = c("Value"))
+```
+:::
+::: {.column width="50%"}
+```{r}
+#| echo: false
+kable(long_cm)
+```
+:::
+::::
+\normalsize
+
+
+## Pivot wider example
+
