@@ -91,11 +91,19 @@ sizes
 
 What behaviors do you observe in the examples below?
 
+```{r}
+flavors <- factor(c("sweet","sour","salty", "sour"))
+
+sizes <- factor(c("small", "small", "tiny", "large", "medium"), 
+                levels = c("tiny", "small", "medium", "large"),
+                ordered = TRUE)
+```
+
+
 * Example A
 
 ```{r}
 #| eval: false
-flavors <- factor(c("sweet","sour","salty", "sour"))
 flavors[3] <- "umami"
 ```
 
