@@ -1,0 +1,63 @@
+---
+title: "Tips for Testing and Debugging in R"
+author: "Bio724D: Fall 2023"
+date: today
+
+format: 
+  beamer:
+    df-print: default
+    
+aspectratio: 1610
+
+# Colors
+colortheme: bio724
+code-block-bg: "#f2f2f2"
+
+# Fonts 
+fontheme: default
+mainfont: Helvetica Light 
+mainfontoptions:
+  - BoldFont=Helvetica
+  - ItalicFont=Helvetica Light Oblique
+monofont: Inconsolata
+
+# Other customizations most easily done in LaTeX itself
+include-in-header:
+  text: |
+    \setbeamerfont{title}{series=\bfseries}
+    \setbeamerfont{frametitle}{series=\bfseries}
+    \setbeamertemplate{itemize item}[circle]
+    \setbeamertemplate{itemize subitem}[square]
+
+execute:
+  echo: true
+  eval: true
+---
+
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyverse)
+library(knitr)
+set.seed(20231005)
+```
+
+
+## Strategies for debugging your code: Documentation matters!
+
+* **RTFM:** Take the time to read the documentation for other functions your code calls. At a minimum m make sure you understand required arguments (and their order), the type and nature of outputs, and possible warnings or errors that might be generated.
+
+* **WTFM:** Document your own code! Take the time to write concise, precise descriptions of required inputs, the form and type of outputs, constraints and limitations, etc.  Described in sufficient detail what the code and how it's supposed to work. Sometimes writing the documentation *before* you write the code can be really helpful!
+
+
+## Strategies for debugging your code: Tests and intermediate state
+
+* Test your code with known inputs and compare generated outputs to expected results.
+
+* Test your code with incorrect inputs.  Does your code fail silently or are there warnings or errors generated?
+
+* Are there corner cases or non-allowable values you need to consider?
+
+* In complex pipelines or flow control statements examine the state of intermediate data objects using strategies such a `print()` statements (simple) or learning to use the debugger in R (complex)
+
