@@ -9,7 +9,7 @@ editor: source
 ## Setting up your Virtual Machine
 
 
-1. Go to the Duke Virtual Computing Manager (VCM) web site: https://vcm.duke.edu/ and login with your NetID
+1. Go to the Duke Virtual Computing Manager (VCM) web site: <https://vcm.duke.edu/> and login with your NetID
     
   
 2. Choose the "Reserve a VM" button (@fig-VCM).
@@ -118,7 +118,7 @@ Cyberduck is free to use, though the program will occasionally prompt your for a
 
 
 
-1. Download Cyberduck from https://cyberduck.io/ and install it via the standard program installation procedure on your operating system
+1. Download Cyberduck from <https://cyberduck.io/> and install it via the standard program installation procedure on your operating system
 
 2. Click the "Open Connection" button in Cyberduck (@fig-cyberduck)
 
