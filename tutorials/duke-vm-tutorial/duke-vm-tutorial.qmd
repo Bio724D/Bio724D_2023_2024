@@ -16,7 +16,7 @@ editor: source
 
 3. From the next page choose the "Linux" tab (@fig-choose-VM-01).
 
-4. Choose "Ubuntu Server 22.04"  (@fig-choose-VM-02).
+4. Choose "Ubuntu Server 22.04 (Jammy Jellyfish)"  (@fig-choose-VM-02).
     * Agree to the Duke VCM Terms of Use
 
 5. From the VM Management page "Power on" your virtual machine (@fig-VM-manager).
