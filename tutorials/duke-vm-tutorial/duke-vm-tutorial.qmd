@@ -1,0 +1,185 @@
+---
+title: "Duke Linux VMs: Getting Started"
+format: 
+  html:
+    embed-resources: true
+editor: source
+---
+
+## Setting up your Virtual Machine
+
+
+1. Go to the Duke Virtual Computing Manager (VCM) web site: https://vcm.duke.edu/ and login with your NetID
+    
+  
+2. Choose the "Reserve a VM" button (@fig-VCM).
+
+3. From the next page choose the "Linux" tab (@fig-choose-VM-01).
+
+4. Choose "Ubuntu Server 22.04"  (@fig-choose-VM-02).
+    * Agree to the Duke VCM Terms of Use
+
+5. From the VM Management page "Power on" your virtual machine (@fig-VM-manager).
+
+    * When you first reserve your VM it will take a few minutes for the instance to be setup. You will receive an email when your VM is ready to be used.
+    
+    * By default, will power down every morning at 6am.  You will need to remember to power on your VM each day.
+    
+    * If you want to keep your VM running continuously than uncheck the "Automatic power downs?" radio button. The VM manager page will ask you to justify this. You can enter text like "Long running jobs".
+    
+    
+6.  **Make note of your VM hostname**: Your VM's "hostname" is displayed on the management page. It will be of the form `vcm-XXXX.vm.duke.edu`. where `vcm-XXXX` is your specific hostname (@fig-VM-manager).
+    
+
+## Connecting to your VM via SSH
+
+SSH (**S**ecure **SH**ell) is a command line program that allows us to connect to remote computers and to execute commands on those remote computers. SSH is available by default on modern MacOS and Windows operating systems.  
+
+
+1. Start your terminal (@fig-powershell).
+
+    * MacOS:  Run the "Terminal" program
+    * Windows: Run the "Powershell" program
+    
+2. Run the SSH command (@fig-powershell-ssh).
+
+    * In the terminal type the following command, replacing `netid` with your NetID and `vcm-XXXX` with the appropriate VM hostname as shown in the Duke VM Manager page
+    
+      ```
+      ssh netid@vcm-XXXX.vm.duke.edu
+      ```
+
+3. The first time you connect via SSH you will get a warning message like the following (@fig-ssh-confirm).  
+
+    This is a safety check; go ahead and type `yes` to continue connecting:
+
+    ```
+    The authenticity of host 'vcm-XXXX.vm.duke.edu (YY.YY.YY.YY)' can't be established.
+    ....
+    Are you sure you want to continue connecting (yes/no/[fingerprint])?
+    ```
+
+4. SSH will be prompt you to enter your password. **Enter your NetID password** here (@fig-ssh-password).
+
+::: {.callout-important}
+
+**IMPORTANT**: The characters you type will **NOT** be echoed on the screen when you type them at the SSH password prompt. 
+
+It is important you type your password slowly and correctly. If you miss-enter your password you will get prompted again. After several miss-entries in a row SSH will close the connection as you'll need to start again from Step 2 above.
+:::
+
+5. Confirm that the SSH command succeeded.
+
+    If you correctly entered the SSH command line, and type your password correctly, then you should see welcome text from your VM as shown in @fig-ssh-successful.
+
+    If you did not connect to your VM check the following:
+    
+    * Did you enter the correct VM hostname?
+    * Did you specify your NetID in the SSH command?
+    * Did you enter the correct password (remember, the characters you type will not be echoed)
+    
+6. Run a few test commands on your VM (@fig-ssh-commands).
+
+   Type the following command in your SSH session:
+   
+   ```
+   uname -a
+   ```
+   
+   and
+   
+   ```
+   whoami
+   ```
+   
+   `uname` prints out some basic info about your VM's operating system.
+   
+   `whoami` returns the name of the user who executes the command.
+   
+   
+
+7. Create an empty file in your VM's home directory (@fig-ssh-create-file).
+
+   We will create an empty file in your home directory so when we connect via Cyberduck (below) we can confirm that there's at least one file on our VM.
+   
+   ```
+   touch TEST_FILE.txt
+   ```
+   
+   The `touch` command creates an empty file (if the file doesn't exist) or updates a file's "timestamp" (when it was last acccessed)
+
+
+
+## Connecting to your VM via Cyberduck
+
+Cyberduck is a "FTP/SFTP client" -- a program that allows us to connect to a remote computer (e.g. your VM) to upload and download files to and from our local computer (e.g. your laptop). 
+
+Cyberduck is free to use, though the program will occasionally prompt your for a donation and/or encourage you to register.
+
+
+
+1. Download Cyberduck from https://cyberduck.io/ and install it via the standard program installation procedure on your operating system
+
+2. Click the "Open Connection" button in Cyberduck (@fig-cyberduck)
+
+3. Change the connection protocol to "SFTP" (@fig-cyberduck-sftp)
+
+   Cyberduck defaults to FTP connections. Choose "SFTP" instead from the pull down menu at the top of the "Open Connections" dialog box.
+   
+4. Fill out the rest of the "Open Connection" dialog box with your VM hostname (`vcm-XXXX.vm.duke.edu`), your username (NetID), and password (NetID password) (@fig-cyberduck-sftp-filled).
+
+    Once the dialog is filled out click the "Connect" button at the bottom of the dialog.
+
+5. Check that Cyberduck has connected to your VM (@fig-cyberduck-connected).
+
+    If you've filled out the Open Connection dialog correctly and successfully connected to your VM, then Cyberduck should default to showing the files and directories in your home directory.  
+    
+    If this is the first time you're connecting, then you should see a single file `TEST_FILE.txt` (assuming you followed the prior directions under the SSH section of this document).
+    
+    If you create a file in the command line via SSH, you may need to "Refresh" Cyberduck to get the list of files/directories to update (red arrow in @fig-cyberduck-connected).
+
+
+## Visual Tour
+
+### Reserving a Virtual Machine
+
+![Duke Virtual Computing Manager (VCM) webpage](duke-vcm.png){fig-align="center" width="90%" #fig-VCM}
+
+![Duke VCM create a VM, Step 1](duke-vcm-choose-vm.png){fig-align="center" width="90%" #fig-choose-VM-01}
+
+![Duke VCM create a VM, Step 2](duke-vcm-choose-ubuntu-22.png){fig-align="center" width="90%" #fig-choose-VM-02}
+
+![Duke VCM Manager](duke-vm-management-screen.png){fig-align="center" width="90%" #fig-VM-manager}
+
+
+### Connecting to your VM via SSH
+
+![Windows Powershell](powershell-default.png){fig-align="center" width="90%" #fig-powershell}
+
+![Windows Powershell, SSH](powershell-ssh.png){fig-align="center" width="90%" #fig-powershell-ssh}
+
+![SSH confirm connection](ssh-confirm-connection.png){fig-align="center" width="90%" #fig-ssh-confirm}
+
+![SSH enter password, nothing echoed](ssh-password-entry-nothing-echoed.png){fig-align="center" width="90%" #fig-ssh-password}
+
+![SSH, successful login](ssh-successful-login.png){fig-align="center" width="90%" #fig-ssh-successful}
+
+![SSH, confirmation commands](ssh-confirmation-commands.png){fig-align="center" width="90%" #fig-ssh-commands}
+
+![SSH, create a file in your home directory](ssh-create-testfile.png){fig-align="center" width="90%" #fig-ssh-create-file}
+
+
+
+### Connecting to your VM via Cyberduck
+
+![Cyberduck](cyberduck-default-screen.png){fig-align="center" width="90%" #fig-cyberduck}
+
+
+![Cyberduck, choose sftp](cyberduck-choose-sftp.png){fig-align="center" width="90%" #fig-cyberduck-sftp}
+
+
+
+![Cyberduck, filled connection dialog](cyberduck-sftp-connection-dialog.png){fig-align="center" width="90%" #fig-cyberduck-sftp-filled}
+
+![Cyberduck, connected](cyberduck-confirm-testfile-shown.png){fig-align="center" width="90%" #fig-cyberduck-connected}
+
