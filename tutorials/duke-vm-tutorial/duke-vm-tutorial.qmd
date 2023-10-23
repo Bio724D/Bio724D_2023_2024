@@ -1,5 +1,6 @@
 ---
 title: "Duke Linux VMs: Getting Started"
+author: "Paul M. Magwene"
 format: 
   html:
     embed-resources: true
