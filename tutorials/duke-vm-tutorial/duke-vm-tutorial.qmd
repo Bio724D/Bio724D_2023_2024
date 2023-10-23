@@ -3,6 +3,9 @@ title: "Duke Linux VMs: Getting Started"
 format: 
   html:
     embed-resources: true
+    toc: true
+    number-sections: true
+    number-depth: 2
 editor: source
 ---
 
