@@ -1,0 +1,100 @@
+---
+title: "An introduction to managing bioinformatics environments with Conda"
+author: "Paul M. Magwene"
+date: last-modified
+format: 
+  html:
+    embed-resources: true
+    toc: true
+    number-sections: true
+    number-depth: 2
+editor: source
+---
+
+## About Conda
+
+[Conda](https://docs.conda.io/en/latest/) is an environment and package management system that is useful for creating computing environments with well defined sets of software tools and code libraries.  For our purposes we will use Conda as a tool for creating defined and reproducible software environments for running  bioinformatics pipelines.
+
+Conda makes it easy to install/uninstall software packages and many common bioinformatics tools have adopted Conda as an install options.  On multi-user systems, such as a shared server or workstation in a lab, another powerful aspect of Conda is that it allows users to install and use specific version of software packages in isolated or "sandboxed" environments.  This allows users to highly customize their computing environments without impacting other users of the same system.
+
+We will use a lightweight version of Conda called ["Miniconda"](https://docs.conda.io/projects/miniconda/en/latest/).
+
+
+## Steps to install conda on your VM
+
+1. SSH to your Linux VM
+
+
+1. Download the Miniconda binary 
+
+    ```
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    ```
+
+1. Run the installer and follow the prompts
+
+    ```
+    bash Miniconda3-latest-Linux-x86_64.sh
+    ```
+
+1. After installing conda, make sure the conda tools are available from the command line logging off and logging back in (or by sourcing your shell profile file if you know how to do this)
+
+
+
+1. Setup software "channels" for common bioinformatics tools
+
+    ```
+    conda config --add channels defaults
+    conda config --add channels bioconda
+    conda config --add channels conda-forge
+    ```
+
+## Adding Python packages to the base environment
+
+By default, conda created a "base" environment for you to work in.  These base environment is where I recommend installing standard tools and packages that you commonly work with.  Let's customize our base environment by installing some commonly used Python packages.  We don't need to explicitly install Python itself because Conda will install all the necessary packages that the packages we're installing depend on.  As Python is a requirement for jupyterlab, matplotlib, etc. it will automatically get installed.
+
+```
+conda install jupyterlab matplotlib numpy scipy
+```
+
+You can search for packages use the `search` subcommand:
+
+```
+conda search biopython
+```
+
+
+## Creating a new conda environment
+
+
+1. To create a new environment (here named "genomics") to install related tools in we use the `create` command:
+
+    ```
+    conda create -n genomics
+    ```
+
+1.  Activate the new environment
+
+    ```
+    conda activate genomics
+    ```
+
+1. When working in an environment you can search for and install  tools using `conda search` and `conda install`.  These tools will be available only in this specific environment.
+
+    We will install a command tool called [SeqKit](https://bioinf.shenwei.me/seqkit/) which provides powerful utilities for working with FASTA and FASTQ files:
+
+    ```
+    conda search seqkit
+    conda install seqkit
+    ```
+
+1. If you want to leave your current conda environment, such as to go back to your "base" environment, you can do so using the `deactivate` command as follows:
+
+    ```
+    conda deactivate
+    ```
+
+
+See also the conda docs for more info:
+
+https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html

@@ -1,0 +1,115 @@
+---
+title: "Getting started with Unix"
+author: "Bio724D: Fall 2023"
+date: today
+
+format: 
+  html:
+    theme: [default, custom.scss]
+    df-print: paged
+    toc: true
+    toc-depth: 3    
+    toc-expand: 3
+    code-line-numbers: false
+    embed-resources: true  
+  revealjs:
+    theme: [simple, custom.scss]
+    df-print: paged
+    scrollable: true
+    slide-level: 2
+    code-line-numbers: false
+    embed-resources: true  
+    output-file: unix_getting_started_revealjs.html    
+execute:
+  echo: true
+  eval: true
+  warning: false
+---
+
+
+## Goals for Class Session
+
+1. Power-on and connect to your Linux virtual machine via SSH
+
+2. Learn basic commands to navigate the file system in Unix
+
+3. Learn basic commands for creating files and directories, searching for files in Unix
+
+4. Learn how to move files back and forth to your VM to/from your local machine and from the web
+
+
+## Commands for navigating the file system on Unix based systems 
+
+NOTE: The following commands also work in Windows PowerShell
+
+* `pwd` -- prints name of your "working" directory (i.e. the directory you're currently in)
+* `ls` -- lists the contents of the working directory
+* `cd` -- change directory
+  * `cd Downloads`
+  * `cd ~` (move to your home directory)
+* `mkdir` -- make a new directory
+  * `mkdir foo_dir`
+  * `mkdir bar_dir`
+* `rmdir` -- remove a directory (must be empty)
+  * `rmdir bar_dir`  
+* `rm` -- remove a file
+  * `rm bar.txt`
+* `cp` -- copy a file
+  * `cp foo.txt foo_copy.txt`
+* `mv` -- move a file or directory
+  * `mv foo.txt baz.txt`
+  * `mv foo_dir foo.dir`
+* `cat` -- write the contents of a file to the terminal:
+  * `cat foo.txt`
+* `less` -- a pager program. View the contents of a file, one page at a time. Type `<space>` to advance pages, `q` to quit.
+
+Side note: Why is it common to use names like `foo`, `bar`, and `baz` in examples? See https://en.wikipedia.org/wiki/Foobar
+
+## Shortcuts for working with the file system
+
+* `~` -- refers to the users home directory.  
+  * `cd ~` = change to my home directory
+  * `ls ~/*.txt` = list all files ending with the prefix `.txt` in your home directory
+* `.` -- the current directory
+  * `cd ./tmp` = move to the directory called `tmp` that is located in the directory the `cd` command is executed from.  
+* `..` -- the directory above the current directory (if it exists)
+  * `cd ..` = move up one level in the directory hierarchy.  For example if `pwd` is `/home/jsmith` then `cd ..` moves you to `/home`
+*  `/` -- the root directory of the file system
+  * `cd /data` = move to the `data` directory that is the subdirectory of the root
+  * `ls /` = list all files and directories in the root directory
+
+
+
+
+## Linux file system, typical structure
+
+* Root = `/`
+* Other disks (USB, etc) mounted under `/mnt`
+* User directories under `/home`; your home directory at `/home/yourusername`
+* System wide applications under `/usr/bin` (often linked to '/bin'); users can also install applications under `/usr/local/bin`
+* User specific config files usually in home directory (hidden by default, use `ls -a` to see hidden files)
+* `PATH` is an environment variable, settable from command line or `~/.profile`
+
+
+
+
+
+## Getting help at the command line
+
+### `man`
+`man` (short for "manual") provides short and succinct description of various commands and program.
+
+Examples:
+  - `man ls`: read the manual pages for the `ls` command
+  - `man man`: read the manual `man`
+
+When read a man page you can use the arrow keys to move up/down line by line, `<space>`/`b` to advance/go back a page at a time,  and `q` to quit.
+
+### `info`
+
+`info` is another help program available on Unix systems built around the GNU core utilities.  `info` is typically wordier and more detailed and often includes examples of use.
+
+
+Example:
+- `info ls`: compare this to man `ls`
+
