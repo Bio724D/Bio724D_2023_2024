@@ -38,6 +38,11 @@ execute:
 4. Learn how to move files back and forth to your VM to/from your local machine and from the web
 
 
+## Powering up your VM, review
+
+Manage your virtual machine at <https://vcm.duke.edu/>
+
+
 ## Commands for navigating the file system on Unix based systems 
 
 NOTE: The following commands also work in Windows PowerShell
