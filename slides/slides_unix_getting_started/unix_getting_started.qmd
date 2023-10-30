@@ -42,6 +42,44 @@ execute:
 
 Manage your virtual machine at <https://vcm.duke.edu/>
 
+## Open up a terminal on your local machine and SSH to your VM
+
+* MacOS -- Terminal
+
+* Windows -- Powershell
+
+
+```bash
+ssh netid@your.vm.host.name
+```
+
+## Using Cyberduck, upload `example_directory.tar.gz` to your VM
+
+Download the file [example_directory.tar.gz](https://github.com/Bio724D/Bio724D_2023_2024/raw/main/data/example_directory.tar.gz) from the course wiki.
+
+The upload this file to your VM using the Cyberduck SFTP client.
+
+See [Connecting to your VM via Cyberduck](https://bio724d.github.io/Bio724D_2023_2024/duke-vm-tutorial.html#connecting-to-your-vm-via-cyberduck)
+
+
+
+## Decompress the `example_directory.tar.gz` tarball
+
+From your VM session:
+
+
+```bash
+tar -x -v -z -f example_directory.tar.gz
+```
+
+* `tar` is a command line utility for archiving/dearchiving directories
+
+* `-x -v -z -f` are options passed to the `tar` command that change it's behavior.
+    * `-x` = extract, 
+    * `-v` = verbose (be wordy in telling the user what's going on)
+    * `-z` = run the archive through the `gzip` program (similar to zip files)
+    * `-f` specifies the file to operate on
+
 
 ## Commands for navigating the file system on Unix based systems 
 

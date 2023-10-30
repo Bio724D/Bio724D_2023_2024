@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -2992,6 +3026,10 @@ vertical-align: -.125em;
    
   <ul>
   <li><a href="#goals-for-class-session" id="toc-goals-for-class-session" class="nav-link active" data-scroll-target="#goals-for-class-session">Goals for Class Session</a></li>
+  <li><a href="#powering-up-your-vm-review" id="toc-powering-up-your-vm-review" class="nav-link" data-scroll-target="#powering-up-your-vm-review">Powering up your VM, review</a></li>
+  <li><a href="#open-up-a-terminal-on-your-local-machine-and-ssh-to-your-vm" id="toc-open-up-a-terminal-on-your-local-machine-and-ssh-to-your-vm" class="nav-link" data-scroll-target="#open-up-a-terminal-on-your-local-machine-and-ssh-to-your-vm">Open up a terminal on your local machine and SSH to your VM</a></li>
+  <li><a href="#using-cyberduck-upload-example_directory.tar.gz-to-your-vm" id="toc-using-cyberduck-upload-example_directory.tar.gz-to-your-vm" class="nav-link" data-scroll-target="#using-cyberduck-upload-example_directory.tar.gz-to-your-vm">Using Cyberduck, upload <code>example_directory.tar.gz</code> to your VM</a></li>
+  <li><a href="#decompress-the-example_directory.tar.gz-tarball" id="toc-decompress-the-example_directory.tar.gz-tarball" class="nav-link" data-scroll-target="#decompress-the-example_directory.tar.gz-tarball">Decompress the <code>example_directory.tar.gz</code> tarball</a></li>
   <li><a href="#commands-for-navigating-the-file-system-on-unix-based-systems" id="toc-commands-for-navigating-the-file-system-on-unix-based-systems" class="nav-link" data-scroll-target="#commands-for-navigating-the-file-system-on-unix-based-systems">Commands for navigating the file system on Unix based systems</a></li>
   <li><a href="#shortcuts-for-working-with-the-file-system" id="toc-shortcuts-for-working-with-the-file-system" class="nav-link" data-scroll-target="#shortcuts-for-working-with-the-file-system">Shortcuts for working with the file system</a></li>
   <li><a href="#linux-file-system-typical-structure" id="toc-linux-file-system-typical-structure" class="nav-link" data-scroll-target="#linux-file-system-typical-structure">Linux file system, typical structure</a></li>
@@ -3042,6 +3080,39 @@ vertical-align: -.125em;
 <li><p>Learn basic commands for creating files and directories, searching for files in Unix</p></li>
 <li><p>Learn how to move files back and forth to your VM to/from your local machine and from the web</p></li>
 </ol>
+</section>
+<section id="powering-up-your-vm-review" class="level2">
+<h2 class="anchored" data-anchor-id="powering-up-your-vm-review">Powering up your VM, review</h2>
+<p>Manage your virtual machine at <a href="https://vcm.duke.edu/" class="uri">https://vcm.duke.edu/</a></p>
+</section>
+<section id="open-up-a-terminal-on-your-local-machine-and-ssh-to-your-vm" class="level2">
+<h2 class="anchored" data-anchor-id="open-up-a-terminal-on-your-local-machine-and-ssh-to-your-vm">Open up a terminal on your local machine and SSH to your VM</h2>
+<ul>
+<li><p>MacOS – Terminal</p></li>
+<li><p>Windows – Powershell</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> netid@your.vm.host.name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="using-cyberduck-upload-example_directory.tar.gz-to-your-vm" class="level2">
+<h2 class="anchored" data-anchor-id="using-cyberduck-upload-example_directory.tar.gz-to-your-vm">Using Cyberduck, upload <code>example_directory.tar.gz</code> to your VM</h2>
+<p>Download the file <a href="https://github.com/Bio724D/Bio724D_2023_2024/raw/main/data/example_directory.tar.gz">example_directory.tar.gz</a> from the course wiki.</p>
+<p>The upload this file to your VM using the Cyberduck SFTP client.</p>
+<p>See <a href="https://bio724d.github.io/Bio724D_2023_2024/duke-vm-tutorial.html#connecting-to-your-vm-via-cyberduck">Connecting to your VM via Cyberduck</a></p>
+</section>
+<section id="decompress-the-example_directory.tar.gz-tarball" class="level2">
+<h2 class="anchored" data-anchor-id="decompress-the-example_directory.tar.gz-tarball">Decompress the <code>example_directory.tar.gz</code> tarball</h2>
+<p>From your VM session:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-x</span> <span class="at">-v</span> <span class="at">-z</span> <span class="at">-f</span> example_directory.tar.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p><code>tar</code> is a command line utility for archiving/dearchiving directories</p></li>
+<li><p><code>-x -v -z -f</code> are options passed to the <code>tar</code> command that change it’s behavior.</p>
+<ul>
+<li><code>-x</code> = extract,</li>
+<li><code>-v</code> = verbose (be wordy in telling the user what’s going on)</li>
+<li><code>-z</code> = run the archive through the <code>gzip</code> program (similar to zip files)</li>
+<li><code>-f</code> specifies the file to operate on</li>
+</ul></li>
+</ul>
 </section>
 <section id="commands-for-navigating-the-file-system-on-unix-based-systems" class="level2">
 <h2 class="anchored" data-anchor-id="commands-for-navigating-the-file-system-on-unix-based-systems">Commands for navigating the file system on Unix based systems</h2>
@@ -3124,7 +3195,7 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="man"><code>man</code></h3>
 <p><code>man</code> (short for “manual”) provides short and succinct description of various commands and program.</p>
 <p>Examples: - <code>man ls</code>: read the manual pages for the <code>ls</code> command - <code>man man</code>: read the manual <code>man</code></p>
-<p>When read a man page you can use the arrow keys to move up/down line by line, <code>&lt;space&gt;</code>/<code>b</code> to advance/go back a page at a time, and <code>q</code> to quit.</p>
+<p>When read a man page you can use the arrow keys to move up/down line by line, <code>&lt;space&gt;</code> and <code>b</code> to advance and go back a page at a time, and <code>q</code> to quit.</p>
 </section>
 <section id="info" class="level3">
 <h3 class="anchored" data-anchor-id="info"><code>info</code></h3>
