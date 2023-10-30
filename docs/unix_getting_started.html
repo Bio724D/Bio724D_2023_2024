@@ -3032,6 +3032,8 @@ vertical-align: -.125em;
   <li><a href="#decompress-the-example_directory.tar.gz-tarball" id="toc-decompress-the-example_directory.tar.gz-tarball" class="nav-link" data-scroll-target="#decompress-the-example_directory.tar.gz-tarball">Decompress the <code>example_directory.tar.gz</code> tarball</a></li>
   <li><a href="#commands-for-navigating-the-file-system-on-unix-based-systems" id="toc-commands-for-navigating-the-file-system-on-unix-based-systems" class="nav-link" data-scroll-target="#commands-for-navigating-the-file-system-on-unix-based-systems">Commands for navigating the file system on Unix based systems</a></li>
   <li><a href="#shortcuts-for-working-with-the-file-system" id="toc-shortcuts-for-working-with-the-file-system" class="nav-link" data-scroll-target="#shortcuts-for-working-with-the-file-system">Shortcuts for working with the file system</a></li>
+  <li><a href="#basic-commands-for-viewing-plain-text-files" id="toc-basic-commands-for-viewing-plain-text-files" class="nav-link" data-scroll-target="#basic-commands-for-viewing-plain-text-files">Basic commands for viewing plain text files</a></li>
+  <li><a href="#commands-for-creating-moving-and-deleting-files-and-directories" id="toc-commands-for-creating-moving-and-deleting-files-and-directories" class="nav-link" data-scroll-target="#commands-for-creating-moving-and-deleting-files-and-directories">Commands for creating, moving, and deleting files and directories</a></li>
   <li><a href="#linux-file-system-typical-structure" id="toc-linux-file-system-typical-structure" class="nav-link" data-scroll-target="#linux-file-system-typical-structure">Linux file system, typical structure</a></li>
   <li><a href="#getting-help-at-the-command-line" id="toc-getting-help-at-the-command-line" class="nav-link" data-scroll-target="#getting-help-at-the-command-line">Getting help at the command line</a>
   <ul class="collapse">
@@ -3039,7 +3041,7 @@ vertical-align: -.125em;
   <li><a href="#info" id="toc-info" class="nav-link" data-scroll-target="#info"><code>info</code></a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="unix_getting_started_revealjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -3119,12 +3121,48 @@ vertical-align: -.125em;
 <p>NOTE: The following commands also work in Windows PowerShell</p>
 <ul>
 <li><code>pwd</code> – prints name of your “working” directory (i.e. the directory you’re currently in)</li>
-<li><code>ls</code> – lists the contents of the working directory</li>
+<li><code>ls</code> – lists the contents of a directory or files of a given type</li>
 <li><code>cd</code> – change directory
 <ul>
-<li><code>cd Downloads</code></li>
+<li><code>cd example_directory</code></li>
 <li><code>cd ~</code> (move to your home directory)</li>
 </ul></li>
+</ul>
+</section>
+<section id="shortcuts-for-working-with-the-file-system" class="level2">
+<h2 class="anchored" data-anchor-id="shortcuts-for-working-with-the-file-system">Shortcuts for working with the file system</h2>
+<ul>
+<li><code>~</code> (tilde) – refers to the users home directory.
+<ul>
+<li><code>cd ~</code> = change to my home directory</li>
+<li><code>ls ~/*.txt</code> = list all files ending with the prefix <code>.txt</code> in your home directory</li>
+</ul></li>
+<li><code>.</code> – the current directory
+<ul>
+<li><code>cd ./tmp</code> = move to the directory called <code>tmp</code> that is located in the directory the <code>cd</code> command is executed from.</li>
+</ul></li>
+<li><code>..</code> – the directory above the current directory (if it exists)
+<ul>
+<li><code>cd ..</code> = move up one level in the directory hierarchy. For example if <code>pwd</code> is <code>/home/jsmith</code> then <code>cd ..</code> moves you to <code>/home</code></li>
+</ul></li>
+<li><code>/</code> – the root directory of the file system</li>
+<li><code>cd /data</code> = move to the <code>data</code> directory that is the subdirectory of the root</li>
+<li><code>ls /</code> = list all files and directories in the root directory</li>
+</ul>
+</section>
+<section id="basic-commands-for-viewing-plain-text-files" class="level2">
+<h2 class="anchored" data-anchor-id="basic-commands-for-viewing-plain-text-files">Basic commands for viewing plain text files</h2>
+<ul>
+<li><code>cat</code> – write the contents of a file to the terminal:
+<ul>
+<li><code>cat foo.txt</code></li>
+</ul></li>
+<li><code>less</code> – a pager program. View the contents of a file, one page at a time. Type <code>&lt;space&gt;</code> to advance pages, <code>q</code> to quit.</li>
+</ul>
+</section>
+<section id="commands-for-creating-moving-and-deleting-files-and-directories" class="level2">
+<h2 class="anchored" data-anchor-id="commands-for-creating-moving-and-deleting-files-and-directories">Commands for creating, moving, and deleting files and directories</h2>
+<ul>
 <li><code>mkdir</code> – make a new directory
 <ul>
 <li><code>mkdir foo_dir</code></li>
@@ -3148,35 +3186,8 @@ vertical-align: -.125em;
 <li><code>mv foo.txt baz.txt</code></li>
 <li><code>mv foo_dir foo.dir</code></li>
 </ul></li>
-<li><code>cat</code> – write the contents of a file to the terminal:
-<ul>
-<li><code>cat foo.txt</code></li>
-</ul></li>
-<li><code>less</code> – a pager program. View the contents of a file, one page at a time. Type <code>&lt;space&gt;</code> to advance pages, <code>q</code> to quit.</li>
 </ul>
 <p>Side note: Why is it common to use names like <code>foo</code>, <code>bar</code>, and <code>baz</code> in examples? See https://en.wikipedia.org/wiki/Foobar</p>
-</section>
-<section id="shortcuts-for-working-with-the-file-system" class="level2">
-<h2 class="anchored" data-anchor-id="shortcuts-for-working-with-the-file-system">Shortcuts for working with the file system</h2>
-<ul>
-<li><code>~</code> – refers to the users home directory.
-<ul>
-<li><code>cd ~</code> = change to my home directory</li>
-<li><code>ls ~/*.txt</code> = list all files ending with the prefix <code>.txt</code> in your home directory</li>
-</ul></li>
-<li><code>.</code> – the current directory
-<ul>
-<li><code>cd ./tmp</code> = move to the directory called <code>tmp</code> that is located in the directory the <code>cd</code> command is executed from.<br>
-</li>
-</ul></li>
-<li><code>..</code> – the directory above the current directory (if it exists)
-<ul>
-<li><code>cd ..</code> = move up one level in the directory hierarchy. For example if <code>pwd</code> is <code>/home/jsmith</code> then <code>cd ..</code> moves you to <code>/home</code></li>
-</ul></li>
-<li><code>/</code> – the root directory of the file system</li>
-<li><code>cd /data</code> = move to the <code>data</code> directory that is the subdirectory of the root</li>
-<li><code>ls /</code> = list all files and directories in the root directory</li>
-</ul>
 </section>
 <section id="linux-file-system-typical-structure" class="level2">
 <h2 class="anchored" data-anchor-id="linux-file-system-typical-structure">Linux file system, typical structure</h2>
