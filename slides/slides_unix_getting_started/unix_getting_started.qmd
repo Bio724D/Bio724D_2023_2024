@@ -78,11 +78,20 @@ tar -x -v -z -f example_directory.tar.gz
 NOTE: The following commands also work in Windows PowerShell
 
 * `pwd` -- prints name of your "working" directory (i.e. the directory you're currently in)
+
 * `ls` -- lists the contents of a directory or files of a given type
+   * `ls example_directory`
+   * `ls example_directory/foo`
+   * `ls -lh` -- list files in "long" (`-l`) format, showing permissions and file sizes (`-h` says to print file sizes in "human readable" form instead of bytes)
+
 * `cd` -- change directory
-  * `cd example_directory`
-  * `cd ~` (move to your home directory)
+   * `cd /` -- move to the "root" directory of your VM
+   * `cd ~`  -- move to your home directory
+   * `cd ~/example_directory` -- move to the `example_directory` located in your home directory
+   
   
+  
+Side note: Why is it common to use names like `foo`, `bar`, and `baz` in examples? See https://en.wikipedia.org/wiki/Foobar  
   
 ## Shortcuts for working with the file system
 
@@ -91,7 +100,7 @@ NOTE: The following commands also work in Windows PowerShell
   * `ls ~/*.txt` = list all files ending with the prefix `.txt` in your home directory
   
 * `.` -- the current directory
-  * `cd ./tmp` = move to the directory called `tmp` that is located in the directory the `cd` command is executed from.  
+  * `cd ./example_directory` = move to the directory called `tmp` that is located in the directory the `cd` command is executed from.  
 
 * `..` -- the directory above the current directory (if it exists)
   * `cd ..` = move up one level in the directory hierarchy.  For example if `pwd` is `/home/jsmith` then `cd ..` moves you to `/home`
@@ -99,6 +108,12 @@ NOTE: The following commands also work in Windows PowerShell
 *  `/` -- the root directory of the file system
   * `cd /data` = move to the `data` directory that is the subdirectory of the root
   * `ls /` = list all files and directories in the root directory
+  
+  
+
+
+
+
   
   
   
@@ -109,26 +124,6 @@ NOTE: The following commands also work in Windows PowerShell
   * `cat foo.txt`
 * `less` -- a pager program. View the contents of a file, one page at a time. Type `<space>` to advance pages, `q` to quit.  
   
-  
-## Commands for creating, moving, and deleting files and directories
-
-* `mkdir` -- make a new directory
-  * `mkdir foo_dir`
-  * `mkdir bar_dir`
-* `rmdir` -- remove a directory (must be empty)
-  * `rmdir bar_dir`  
-* `rm` -- remove a file
-  * `rm bar.txt`
-* `cp` -- copy a file
-  * `cp foo.txt foo_copy.txt`
-* `mv` -- move a file or directory
-  * `mv foo.txt baz.txt`
-  * `mv foo_dir foo.dir`
-
-
-Side note: Why is it common to use names like `foo`, `bar`, and `baz` in examples? See https://en.wikipedia.org/wiki/Foobar
-
-
 
 
 
@@ -163,4 +158,21 @@ When read a man page you can use the arrow keys to move up/down line by line, `<
 
 Example:
 - `info ls`: compare this to man `ls`
+
+
+## Commands for creating, moving, and deleting files and directories
+
+* `mkdir` -- make a new directory
+  * `mkdir foo_dir`
+  * `mkdir bar_dir`
+* `rmdir` -- remove a directory (must be empty)
+  * `rmdir bar_dir`  
+* `rm` -- remove a file
+  * `rm bar.txt`
+* `cp` -- copy a file
+  * `cp foo.txt foo_copy.txt`
+* `mv` -- move a file or directory
+  * `mv foo.txt baz.txt`
+  * `mv foo_dir foo.dir`
+
 
