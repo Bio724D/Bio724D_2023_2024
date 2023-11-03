@@ -3022,6 +3022,10 @@ vertical-align: -.125em;
 <li><code>netid-assignment_XX-Fall2023.qmd</code></li>
 </ul>
 <p>Submit both your markdown file and the generated HTML document via the Assignments submission section on Sakai.</p>
+<section id="note" class="level2">
+<h2 class="anchored" data-anchor-id="note">NOTE!</h2>
+<p>This is an updated version of the problem set that fixes some typos. In addition, question 6 refers to <code>cal</code>, a command that isn’t automatically loaed onto your VM. There is now an alternative question 6 that you can do instead. I’ve left the original question 6 in place in case you want to learn about <code>cal</code>, which is useful command (and available on most unix/linux distributions). Apologies for any confusion!</p>
+</section>
 <section id="problems" class="level2">
 <h2 class="anchored" data-anchor-id="problems">Problems</h2>
 <p>For this problem set, we will be using your VM and working with the information in <code>example_directory</code> that Paul introduced in class. Start out by logging into your VM and using CyberDuck to transfer <code>example_directory</code> onto your VM. Within <code>example_directory</code>, create a new directory called <code>practice</code> and navigate into this directory (in other words, make practice your working directory). This is where you can try commands and see their effects before submitting answers to the questions in this problem set.</p>
@@ -3029,17 +3033,17 @@ vertical-align: -.125em;
 <li>Show the commands that you would use to carry out the following file operations. In each case, you should be able to carry out the operation with a single command.</li>
 </ol>
 <ul>
-<li><p>Create a directory in <code>~/foo</code> called <code>wombat</code>.</p></li>
+<li><p>Create a directory in <code>~/example_directory/foo</code> called <code>wombat</code>.</p></li>
 <li><p>Create a directory in your current location called <code>kanga</code> that contains a subdirectory called <code>roo</code>.</p></li>
-<li><p>Copy the directory <code>~/bar</code> into your current location.</p></li>
+<li><p>Copy the directory <code>~/example_directory/bar</code> into your current location.</p></li>
 <li><p>Change name of the directory <code>bar</code> in your current location (not the original one) to <code>koala</code>.</p></li>
-<li><p>Move the directory <code>~/foo/wombat</code> that you created earlier into your current directory.</p></li>
+<li><p>Move the directory <code>~/example_directory/foo/wombat</code> that you created earlier into your current directory.</p></li>
 </ul>
 <ol start="2" type="1">
 <li>When you make many files to contain similar data, it is good practice to have all the file names be the same length, as this results in correct ordering when you sort or display them. For instance, if you have dozens of files, name the first file <code>data_01.txt</code> rather than <code>data_1.txt</code>. This is called padding with zeros. The number of zeros depends on how many files you anticipate working with. Imagine a situation where you need 200 files.</li>
 </ol>
 <ul>
-<li><p>Show the commands that you would need to create 200 empty files that have the format <code>data_001.txt</code> through <code>data_199.txt</code>. You should be able to create all 200 files with just three commands. (Hint: yefer to the slide deck from class for a hand expansion to create mutliple files at once.) Use <code>ls</code> to make sure you have all the files that you expected.</p></li>
+<li><p>Show the commands that you would need to create 200 empty files that have the format <code>data_001.txt</code> through <code>data_199.txt</code>. You should be able to create all 200 files with just three commands. (Hint: refer to the slide deck from class for a hand expansion to create mutliple files at once.) Use <code>ls</code> to make sure you have all the files that you expected.</p></li>
 <li><p>Now let’s imagine a situation where you later realize that you only need 150 files. Show the single command that you would use to delete files <code>data_151.txt</code> through <code>data_199.txt</code>.</p></li>
 </ul>
 <ol start="3" type="1">
@@ -3068,12 +3072,20 @@ vertical-align: -.125em;
 <li><p>Use <code>ls -al</code> and the redirect append operator to add the contents of directory <code>../baz</code> to this file.</p></li>
 </ul>
 <ol start="6" type="1">
-<li>Unix provides dozens of of useful utilities. One of these is <code>date</code>, which returns the current date and time. Another useful command is <code>cal</code>, which returns a calendar of the current month. Run these commands and refer to their man pages to learn how they work. Then show the commands that you would use to carry out the following operations:</li>
+<li>(original version) Unix provides dozens of of useful utilities. One of these is <code>date</code>, which returns the current date and time. Another useful command is <code>cal</code>, which returns a calendar of the current month. Run these commands and refer to their man pages to learn how they work. Then show the commands that you would use to carry out the following operations:</li>
 </ol>
 <ul>
 <li><p>Append the current date to <code>bilby.txt</code></p></li>
 <li><p>Retrieve the calendar for the year 1999</p></li>
 <li><p>Retrieve the calendar for the month in which you were born</p></li>
+</ul>
+<ol start="6" type="1">
+<li>(new version) Navigate to the directory <code>~/example_directory/foo</code>. Explain the different results you expect when using the following commands. (Hint: you can try them out if you are not sure. However, most of these commands will alter the organization of files, so remember to re-set everything back to the orginal state before trying the next command. To do this, redirect <code>ls -a</code> for <code>~/example_directory/foo</code> and <code>~/example_directory/bar</code> into a text file that you create; these are the only directories that will be affected.)</li>
+</ol>
+<ul>
+<li><p><code>$ mv rocky-the-movie.txt ../bar</code> and <code>$ cp rocky-the-movie.txt ../bar</code></p></li>
+<li><p><code>$ mv rocky-the-movie.txt ../bar</code> and <code>$ mv rocky-the-movie.txt another.txt</code></p></li>
+<li><p><code>$ cp rocky-the-movie.txt ../bar/another.txt</code> and <code>$ cp rocky-the-movie.txt another.txt</code></p></li>
 </ul>
 </section>
 </section>
