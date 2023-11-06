@@ -158,7 +158,7 @@ Examples:
   
 ## Extended example: Exploring genome annotation
 
-Download the genome annotation for the *Saccharomyces cerevesiae* (budding yeast) genome from the course website.
+Use `wget` to download the genome annotation for the *Saccharomyces cerevesiae* (budding yeast) genome onto your VM (see course wiki for link).
 
 
 ## GFF feature format
@@ -175,6 +175,19 @@ We're going to be most concerned with these columns:
 
 -   Column 7: "strand" -- The strand of the feature. + for positive strand (relative to the landmark), - for minus strand, and . for features that are not stranded.
 -   Column 9: "attributes" -- A list of feature attributes in the format tag=value. Multiple tag=value pairs are separated by semicolons. See the GFF3 spec for more info.
+
+
+## Let's build some pipelines to answer the following Q's
+
+* How many annotated features are there in the yeast genome?
+
+* What is the set of feature types?
+
+* How many gene features are there?
+
+* Which chromosome has the most genes?
+
+
 
 
 
