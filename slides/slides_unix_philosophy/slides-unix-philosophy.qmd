@@ -35,7 +35,7 @@ execute:
 
 Unix is an operating system, first developed at Bell Labs in the early 1970s.  A few years after it's initial development, Bell Labs made the operating system and it's source code available to educational institutions. Because the source code was available, Unix became a popular platform for research and development in academia.  
 
-The history of Unix, its commercialization, various legal battles, etc are long and complicated.  However, for our purposes it is sufficient to know that the most popular "descendant" of Unix used today is a free and open source operating system called Linux.  Linux is built on the same principles as Uni, and taking advantage of many of the same tools and concepts which have been updated and improved on over the last 50 years.
+The history of Unix, its commercialization, various legal battles, etc are long and complicated.  However, for our purposes it is sufficient to know that the most popular "descendant" of Unix used today is a free and open source operating system called Linux.  Linux is built on the same principles as Unix, and taking advantage of many of the same tools and concepts which have been updated and improved on over the last 50 years.
 
 ## Some key features that make Unix systems powerful
 
@@ -64,7 +64,7 @@ The history of Unix, its commercialization, various legal battles, etc are long 
 
 * Bourne Again Shell (bash) -- the default shell on our Linux VMs and probably the most popular terminal across different Unix operating systems. Derived from an older shell called the Bourne shell (sh).
 
-* csh/tcsh -- a shell with a C-like syntax; first developed by Bill joy at UC Berkeley as part of the Berkley System Distribution (BSD) Unix.
+* csh/tcsh -- a shell with a C-like syntax; first developed at UC Berkeley as part of the Berkley System Distribution (BSD) Unix.
 
 * Zsh -- default shell on MacOS.
 
