@@ -1,0 +1,25 @@
+!
+!Date: 01/19/2022
+!From: Saccharomyces Genome Database (SGD) 
+!URL: http://www.yeastgenome.org/ 
+!Contact Email: sgd-helpdesk@lists.stanford.edu 
+!Funding: NHGRI at US NIH, grant number 5-U41-HG001315 
+!
+
+Regulator	Regulator Systematic Name	Target	Target Systematic Name	Direction	Regulation of	Happens During	Regulator Type	Direction	Regulation Of	Happens During	Method	Evidence	Strain Background	Reference
+STE12	YHR084W	FLO10	YKR102W	positive	transcription		transcription factor	positive	transcription		manually curated	quantitative reverse transcription polymerase chain reaction evidence	Sigma1278b	Chow J, et al. (2018) PMID:30096860
+STE12	YHR084W	FLO11	YIR019C	positive	transcription		transcription factor	positive	transcription		manually curated	quantitative reverse transcription polymerase chain reaction evidence	Sigma1278b	Chow J, et al. (2019) PMID:31053593
+STE12	YHR084W	FUS1	YCL027W	positive	transcription	cellular response to pheromone	transcription factor	positive	transcription	cellular response to pheromone	manually curated	beta-galactosidase reporter gene assay evidence	W303	Dolan JW and Fields S (1990) PMID:2193847
+STE12	YHR084W	MF(ALPHA)1	YPL187W	positive	transcription		transcription factor	positive	transcription		manually curated	northern blot evidence	Other	Fields S and Herskowitz I (1985) PMID:3931921
+STE12	YHR084W	MF(ALPHA)2	YGL089C	positive	transcription		transcription factor	positive	transcription		manually curated	northern blot evidence	Other	Fields S and Herskowitz I (1985) PMID:3931921
+STE12	YHR084W	MFA1	YDR461W	positive	transcription		transcription factor	positive	transcription		manually curated	northern blot evidence	Other	Fields S and Herskowitz I (1985) PMID:3931921
+STE12	YHR084W	MFA2	YNL145W	positive	transcription		transcription factor	positive	transcription		manually curated	northern blot evidence	Other	Fields S and Herskowitz I (1985) PMID:3931921
+STE12	YHR084W	OCH1	YGL038C	positive	transcription		transcription factor	positive	transcription		manually curated	quantitative reverse transcription polymerase chain reaction evidence	Sigma1278b	Chow J, et al. (2018) PMID:30096860
+STE12	YHR084W	PGU1	YJR153W	positive	transcription		transcription factor	positive	transcription		manually curated	quantitative reverse transcription polymerase chain reaction evidence	Sigma1278b	Chow J, et al. (2019) PMID:31053593
+STE12	YHR084W	PRM1	YNL279W	positive	transcription	cellular response to pheromone	transcription factor	positive	transcription	cellular response to pheromone	manually curated	beta-galactosidase reporter gene assay evidence	Sigma1278b	Höfken T (2017) PMID:28986257
+STE12	YHR084W	PRY2	YKR013W	positive	transcription		transcription factor	positive	transcription		manually curated	quantitative reverse transcription polymerase chain reaction evidence	Sigma1278b	Chow J, et al. (2018) PMID:30096860
+STE12	YHR084W	STE2	YFL026W	positive	transcription		transcription factor	positive	transcription		manually curated	northern blot evidence	Other	Fields S and Herskowitz I (1985) PMID:3931921
+STE12	YHR084W	STE3	YKL178C	positive	transcription		transcription factor	positive	transcription		manually curated	northern blot evidence	Other	Fields S and Herskowitz I (1985) PMID:3931921
+STE12	YHR084W	TIP1	YBR067C	positive	transcription		transcription factor	positive	transcription		manually curated	quantitative reverse transcription polymerase chain reaction evidence	Sigma1278b	Chow J, et al. (2018) PMID:30096860
+STE12	YHR084W	YAR009C	YAR009C	positive	transcription		transcription factor	positive	transcription		manually curated	quantitative reverse transcription polymerase chain reaction evidence	Sigma1278b	Chow J, et al. (2019) PMID:31053593
+STE12	YHR084W	YDR365W-B	YDR365W-B	positive	transcription		transcription factor	positive	transcription		manually curated	quantitative reverse transcription polymerase chain reaction evidence	Sigma1278b	Chow J, et al. (2019) PMID:31053593
