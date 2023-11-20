@@ -1,0 +1,192 @@
+---
+title: "Control flow in Bash"
+author: "Bio724D: Fall 2023"
+date: today
+
+format: beamer
+aspectratio: 1610
+
+# Colors
+colortheme: bio724
+code-block-bg: "#f2f2f2"
+
+# Fonts 
+fontheme: default
+mainfont: Helvetica Light 
+mainfontoptions:
+  - BoldFont=Helvetica
+  - ItalicFont=Helvetica Light Oblique
+monofont: Inconsolata
+monofontoptions:
+  - Scale=0.97
+
+# Other customizations most easily done in LaTeX itself
+include-in-header:
+  text: |
+    \setbeamerfont{title}{series=\bfseries}
+    \setbeamerfont{frametitle}{series=\bfseries}
+    \setbeamertemplate{itemize item}[circle]
+    \setbeamertemplate{itemize subitem}[square]
+
+execute:
+  echo: true
+  eval: false
+---
+
+## Starting script
+
+```bash
+#!/usr/bin/env bash
+ 
+lines=$(ls $1 | wc -l)
+ 
+if [[ $# -ne 1 ]]
+then
+      echo "Error: please provide a single valid directory path"
+      exit 1
+fi 
+ 
+echo "The directory $1 contains $(($lines-1)) objects."
+```
+
+
+## If-then and If-then-else statements in Bash
+
+
+```bash
+if [ condition ]
+then
+  [ commands ]
+fi
+```
+
+and
+
+```bash
+if [ condition ]
+then
+  [ commands ]
+else
+  [ other commands ]
+fi
+```
+
+You can add additional conditions through the inclusion of [`elif` blocks](https://linuxconfig.org/bash-if-statements-if-elif-else-then-fi). 
+
+
+## If-then and If-then-else examples
+
+
+```bash
+# if statement
+if [[ $(ls -l *.txt | wc -l ) -gt 5 ]]
+then
+  echo "You've got more than 5 text files in your home directory!"
+fi
+```
+
+```bash
+# if-else statement
+if [[ $(ls -l *.txt | wc -l ) -lt 5 ]]
+then
+  echo "You are text file poor. Better step up your text game!"
+else
+  echo "You have an abundance of text files in your home directory!"
+fi
+```
+
+The operators `-gt` ("greater than") and `-lt` ("less than") in these examples are used for arithmetic comparisons. Other arithmetic logical operators include `-eq` ("equal to"), `-le` ("less than or equal to") `-ge` ("greater than or equal to") and `-ne` ("not equal to").
+
+
+## Building on our earlier script
+
+```bash
+#!/usr/bin/env bash
+ 
+lines=$(ls $1 | wc -l)
+ 
+if [[ $# -ne 1 ]] || [[ ! -d $1 ]]  ## || = "or", && = "and"
+then
+      echo "Error: please provide a single valid directory path"
+      exit 1
+fi 
+ 
+echo "The directory $1 contains $(($lines-1)) objects."
+```
+
+
+
+## For loops
+
+
+```bash
+for name in [ words ]
+do
+  [ commands ]
+done
+```
+
+
+Meaning:
+
+Expand `[ words ]` as needed and apply `[ commands ]` to each element of the resultant list; the variable `name` gets bound to each element.
+
+
+## For loop examples
+
+\small
+```bash
+# loop over the numbers 1 to 4
+for item in {1..4} 
+do
+  echo ${item} potato!
+done
+```
+
+```bash
+# loop over the .txt files in your current directory
+# where the list of files is generated via command substitution
+for filename in $(ls *.txt)
+do
+  echo ${filename} backward is $(echo ${filename} | rev)
+done
+```
+
+```bash
+# loop over a list of strings
+for word in Who What Where When Why How
+do
+  echo "Newspaper writers are taught to discuss:" $word
+done
+```
+\normalsize
+
+
+## Yet more improviements on our earlier script
+
+\small
+```bash
+#!/usr/bin/env bash
+
+lines=$(ls $1 | wc -l)
+ 
+if [[ $# -ne 1 ]] || [[ ! -d $1 ]]  ## || = "or", && = "and"
+then
+  echo "Error: please provide a single valid directory path"
+  exit 1
+fi 
+ 
+echo -e "The directory $1 contains $(($lines-1)) objects:\n"
+
+for filename in $(realpath $1/*)
+do
+  if [[ -d ${filename} ]]
+  then
+    echo "${filename} is a directory."
+  else
+    echo "${filename} is a file. Its size in bytes is : " $(wc -c < ${filename}) 
+  fi
+done
+```
+\normalsize
+
