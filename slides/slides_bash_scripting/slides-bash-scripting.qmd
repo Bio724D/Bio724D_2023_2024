@@ -46,7 +46,7 @@ then
       exit 1
 fi 
  
-echo "The directory $1 contains $(($lines-1)) objects."
+echo "The directory $1 contains ${lines} objects."
 ```
 
 
@@ -79,7 +79,7 @@ You can add additional conditions through the inclusion of [`elif` blocks](https
 
 ```bash
 # if statement
-if [[ $(ls -l *.txt | wc -l ) -gt 5 ]]
+if [[ $(ls *.txt | wc -l ) -gt 5 ]]
 then
   echo "You've got more than 5 text files in your home directory!"
 fi
@@ -87,7 +87,7 @@ fi
 
 ```bash
 # if-else statement
-if [[ $(ls -l *.txt | wc -l ) -lt 5 ]]
+if [[ $(ls *.txt | wc -l ) -lt 5 ]]
 then
   echo "You are text file poor. Better step up your text game!"
 else
@@ -111,7 +111,7 @@ then
       exit 1
 fi 
  
-echo "The directory $1 contains $(($lines-1)) objects."
+echo "The directory $1 contains ${lines} objects."
 ```
 
 
@@ -176,7 +176,7 @@ then
   exit 1
 fi 
  
-echo -e "The directory $1 contains $(($lines-1)) objects:\n"
+echo -e "The directory $1 contains ${lines-1} objects:\n"
 
 for filename in $(realpath $1/*)
 do
