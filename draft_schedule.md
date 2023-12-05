@@ -59,8 +59,8 @@
 | 13 | 30 NOV | instructors: trouble-shooting projects | 
 | -- | 07 DEC | no class (graduate classes end 01 DEC) |
 | -- | -- | winter break |
-| 14 | 11 JAN | TA introduction and discussion | 
-| 15 | 18 JAN | speaker |
+| 14 | 11 JAN | no class | 
+| 15 | 18 JAN | principles of reproducibility and sharing |
 | 16 | 25 JAN | speaker |
 | 17 | 01 FEB | speaker |
 | 18 | 08 FEB | speaker |
