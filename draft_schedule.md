@@ -60,8 +60,8 @@
 | -- | 07 DEC | no class (graduate classes end 01 DEC) |
 | -- | -- | winter break |
 | 14 | 11 JAN | no class | 
-| 15 | 18 JAN | principles of reproducibility and sharing |
-| 16 | 25 JAN | speaker |
+| 15 | 18 JAN | Greg Wray: principles of reproducibility and sharing |
+| 16 | 25 JAN | Paul Magwene: Python in practice |
 | 17 | 01 FEB | speaker |
 | 18 | 08 FEB | speaker |
 | 19 | 15 FEB | speaker |
