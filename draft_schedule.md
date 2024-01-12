@@ -61,8 +61,8 @@
 | -- | -- | winter break |
 | 14 | 11 JAN | no class | 
 | 15 | 18 JAN | Greg Wray: principles of reproducibility and sharing |
-| 16 | 25 JAN | Paul Magwene: Python in practice |
-| 17 | 01 FEB | speaker |
+| 16 | 25 JAN | Steve Haase: data lunch |
+| 17 | 01 FEB | Paul Magwene: Python in practice |
 | 18 | 08 FEB | speaker |
 | 19 | 15 FEB | speaker |
 | 20 | 22 FEB | speaker |
@@ -70,7 +70,7 @@
 | 22 | 07 MAR | speaker Jake Gordan ? |
 | -- | 14 MAR | no class (spring break) |
 | 23 | 21 MAR | speaker |
-| 24 | 28 MAR | speaker |
+| 24 | 28 MAR | Justin Wright: data lunch |
 | 25 | 04 APR | speaker |
 | 26 | 11 APR | speaker |
 | -- | 18 APR | no class (graduate classes end 17 APR) |speaker |
