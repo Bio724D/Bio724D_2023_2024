@@ -63,7 +63,7 @@
 | 15 | 18 JAN | Greg Wray: principles of reproducibility and sharing |
 | 16 | 25 JAN | Steve Haase: data lunch |
 | 17 | 01 FEB | Paul Magwene: Python in practice |
-| 18 | 08 FEB | Blake Faushee: data lunch |
+| 18 | 08 FEB | Blake Fauskee: data lunch |
 | 19 | 15 FEB | speaker |
 | 20 | 22 FEB | speaker |
 | 21 | 29 FEB | speaker (leap day; discuss challenges computing with dates?) |
