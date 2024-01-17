@@ -63,13 +63,13 @@
 | 15 | 18 JAN | Greg Wray: principles of reproducibility and sharing |
 | 16 | 25 JAN | Steve Haase: data lunch |
 | 17 | 01 FEB | Paul Magwene: Python in practice |
-| 18 | 08 FEB | speaker |
+| 18 | 08 FEB | Blake Faushee: data lunch |
 | 19 | 15 FEB | speaker |
 | 20 | 22 FEB | speaker |
 | 21 | 29 FEB | speaker (leap day; discuss challenges computing with dates?) |
 | 22 | 07 MAR | speaker Jake Gordan ? |
 | -- | 14 MAR | no class (spring break) |
-| 23 | 21 MAR | speaker |
+| 23 | 21 MAR | Arnaldo Carreira Rosario: data lunch |
 | 24 | 28 MAR | Justin Wright: data lunch |
 | 25 | 04 APR | speaker |
 | 26 | 11 APR | speaker |
