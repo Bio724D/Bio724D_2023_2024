@@ -65,8 +65,8 @@
 | 17 | 01 FEB | Paul Magwene: Python in practice |
 | 18 | 08 FEB | Blake Fauskee: data lunch |
 | 19 | 15 FEB | speaker |
-| 20 | 22 FEB | speaker: Jake Gordan ? |
-| 21 | 29 FEB | speaker (leap day; discuss challenges computing with dates?) |
+| 20 | 22 FEB | speaker:  |
+| 21 | 29 FEB | Jake Gordan: data lunch |
 | 22 | 07 MAR | Jean-Philippe Gibert: data lunch |
 | -- | 14 MAR | no class (spring break) |
 | 23 | 21 MAR | Arnaldo Carreira Rosario: data lunch |
