@@ -1,0 +1,305 @@
+---
+title: "Numpy and Matplotlib"
+author: "Paul M. Magwene"
+date: today
+
+format: 
+  html:
+    theme: [default, custom.scss]
+    df-print: paged
+    toc: true
+    toc-depth: 3    
+    toc-expand: 3
+    code-line-numbers: false
+    embed-resources: true  
+  revealjs:
+    theme: [simple, custom.scss]
+    df-print: paged
+    scrollable: true
+    slide-level: 2
+    code-line-numbers: false
+    embed-resources: true  
+    output-file: numpy_matplotlib_revealjs.html 
+  ipynb:
+    toc: true
+execute:
+  echo: true
+  eval: true
+  warning: false
+  collapse: false
+jupyter: python3  
+---
+
+
+##
+::: {.callout-note collapse="true"}
+## Numpy
+
+Numpy is the de facto library for numerical computing in Python.
+
+* Provides an efficient multi-dimensional array data structure that facilitates a wide variety of numerical computing tasks.
+
+* Provides a wide range of functions for array manipulation and core numerical functions that are important for many numerical tasks in mathematics, statistics and machine learning, bioinformatics, etc.
+
+* Basis for many other packages
+
+:::
+
+##
+::: {.callout-note collapse="true"}
+## Matplotlib
+
+Matplot is the de facto library for plotting in Python.
+
+* Provides two "flavors" of plotting interfaces
+  1. A "state based" function oriented interface through `matplotlib.pyplot`  
+  2. An object oriented interface  
+
+* The function based interface tends to be "higher level" while the object oriented interface provides greater flexibility and tweaking. It is not uncommon to mix the two types of interfaces when constructing plots interactively.
+
+* Does not provide the elegance of a "grammar of graphics". However, provides powerful set of tools for creating novel graphics that would be hard or impossible to do in ggplot2.  Also has much better support for 3D graphics and other less common plot types.
+
+:::
+
+
+##
+
+::: {.callout-note collapse="true"}
+## What about Scipy?
+
+* Scipy is a companion to Numpy, providing a broad range of numerical routines that are widely used in different fields, but perhaps not so fundamental as what's included in numpy
+* Includes:
+	* Integration
+	* Optimization
+	* Interpolation
+	* Signal processing
+	* Linear algebra -- numpy has a linalg module but scipy version adds some additional functionality
+	* Spatial data 
+	* Graph algorithms
+	* Statistics
+	* Image processing
+:::
+
+
+
+##
+::: {.callout-note collapse="true"}
+## Numpy: key concepts
+
+* Numpy arrays (type: `ndarray`) are multi-dimensional, ordered, and homogenous 
+
+* Shaped -- Arrays have a size, dimension, and shape
+
+* Typed -- Arrays have a data type (`dtype`) which specifies the types of the data they hold. You can leave this up to numpy to infer/guess, or you can specify `dtype` explicitly
+
+* Indexing and slicing -- Array access is a logical extension of indexing for other Python data structures like lists but there are some subtleties to be aware of
+
+* Vectorized -- Many Numpy operators and functions are vectorized and are applied to every element in an input array
+
+* Broadcasting -- Numpy array operations/function that take two or more arrays as input exploit "broadcasting" to carry out operations between arrays. This as long as the dimensions of the arrays are compatible.
+
+  * Sort of like a stricter version of R's "recycling" 
+
+
+* Views and copies -- Most methods on arrays return "views" of/into the original array than copies.  Changing a view will change the data in the original array. To get a copy, make sure to use the `.copy()` method
+
+
+
+## Numpy Broadcasting Rules
+
+> When operating on two arrays, NumPy compares their shapes element-wise. It starts with the trailing (i.e. rightmost) dimension and works its way left. Two dimensions are compatible when
+>
+>    1. they are equal, or
+>
+>    2. one of them is 1.
+>
+>If these conditions are not met, a ValueError: operands could not be broadcast together exception is thrown, indicating that the arrays have incompatible shapes.
+
+
+:::
+
+
+##
+::: {.callout-tip}
+## Numpy array creation and dimensional attributes
+
+```{python}
+import numpy as np
+```
+
+
+```{python}
+a = np.array([1,2,3,4,5,6])  
+a
+```
+
+```{python}
+a.dtype, a.size, a.shape, a.ndim
+```
+
+```{python}
+a[0], a[-1]
+```
+
+```{python}
+a[2:4], a[::2]
+```
+
+
+```{python}
+b = np.array([[1,2],[3,4]], dtype=float)
+b
+```
+
+```{python}
+b.dtype, b.size, b.shape, b.ndim
+```
+
+
+Note the subtle difference here between the arrays assigned to `a` and `c`:
+
+```{python}
+c = np.array([[1,2,3,4,5,6]])
+c
+```
+
+```{python}
+c.dtype, c.size, c.shape, c.ndim
+```
+
+Array's don't have to contain numbers:
+
+```{python}
+s = np.array(["how", "now", "brown", "cow"])
+s
+```
+
+```{python}
+s.dtype
+```
+
+
+```{python}
+d3 = np.array([
+  [[1,2,3,4]],
+  [[5,6,7,8]],
+  [[9,10,11,12]]
+])
+d3
+```
+
+```{python}
+d3.shape, d3.ndim
+```
+:::
+
+
+## Functions that facilitate array creation
+
+```{python}
+x = np.arange(10)
+np.arange(10, 20, step = 0.5) # can do non-integer steps unlike range()
+
+np.linspace(1,5, num=10)  # 100 steps between 1 and 5 inclusive
+
+```
+
+
+```{python}
+np.zeros((4,4))
+```
+
+```{python}
+np.ones((4,4))
+```
+
+```{python}
+np.eye(4, 4)  # note inconsistency here in terms of specifying shape
+```
+
+```{python}
+np.eye(3,4)
+```
+
+```{python}
+rng = np.random.default_rng()
+
+rng.random(5)
+
+```
+
+```{python}
+rng.random((4,4))
+```
+
+```{python}
+plt.hist(rng.standard_normal(100))
+```
+
+
+
+##
+::: {.callout-note collapse="true"}
+## Image data for examples
+
+We will use 3D Cell data from `skimage.data`
+
+```{python}
+import skimage
+cells3d = skimage.data.cells3d()
+```
+:::
+
+
+##
+::: {.callout-note collapse="true"}
+## Basic plot types in matplotlib.pyplot
+
+
+
+* `plot()` -- line plots and marker plots
+* `hist()` -- histogram
+* `hist2()` -- 
+* `scatter()` -- scatter plot
+* `boxplot()`
+* `violinplot()`
+* `contour()/contourf()`
+* `bar()`
+* `pie()`
+* `imshow()`
+
+:::
+
+##
+::: {.callout-important collapse="true"}
+### ★ Your turn
+
+What behaviors do you observe in the examples below?
+
+```{python}
+
+```
+
+
+* Example A
+
+```{python}
+#| eval: false
+
+```
+
+* Example B
+
+```{python}
+#| eval: false
+
+```
+
+* Example C
+  
+```{python}
+#| eval: false
+
+```
+:::
+
