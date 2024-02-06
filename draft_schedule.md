@@ -34,7 +34,7 @@
 | 21 | 18 MAR | best practices: data and code management; version control  |
 | 22 | 25 MAR | best practices: visualization  |
 | 23 | 01 APR | workshopping your future projects, part 1  |
-| 24 | 08 APR | workshopping your future projects, part 1  |
+| 24 | 08 APR | workshopping your future projects, part 2  |
 | 25 | 15 APR | final project clinic |
 | -- | 22 APR | no class (graduate classes end 17 APR)  |
 
