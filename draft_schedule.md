@@ -72,7 +72,7 @@
 | 23 | 21 MAR | Arnaldo Carreira Rosario: data lunch |
 | 24 | 28 MAR | Justin Wright: data lunch |
 | 25 | 04 APR | Cullen Roth: data lunch |
-| 26 | 11 APR | speaker |
+| 26 | 11 APR | Alex Phillips: data lunch |
 | -- | 18 APR | no class (graduate classes end 17 APR) |speaker |
   
   
