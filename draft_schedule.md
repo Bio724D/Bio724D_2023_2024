@@ -25,11 +25,11 @@
 | -- | 15 JAN | no class (Martin Luther King Day)  |
 | 14 | 22 JAN | python: data structures and programming basics  |
 | 15 | 29 JAN | python: flow and functions  |
-| 16 | 05 FEB | python: numpy and pandas    |
-| 17 | 12 FEB | python: debugging and validation  |
-| 18 | 19 FEB | python: object-oriented programming  |
-| 19 | 26 FEB | sql: relational databases; introduction to sqlite  |
-| 20 | 05 MAR | sql: select; join; queries using R and python  |
+| 16 | 05 FEB | python: numpy and matplotlib  |
+| 17 | 12 FEB | python: pandas and seaborn  |
+| 18 | 19 FEB | python: more pandas |
+| 19 | 26 FEB | sql: relational databases; queries |
+| 20 | 05 MAR | sql: building databases; integrating with Python |
 | -- | 11 MAR | no class (spring break) |
 | 21 | 18 MAR | best practices: data and code management; version control  |
 | 22 | 25 MAR | best practices: visualization  |
