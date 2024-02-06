@@ -64,8 +64,8 @@
 | 16 | 25 JAN | Steve Haase: data lunch |
 | 17 | 01 FEB | Paul Magwene: Python in practice |
 | 18 | 08 FEB | Blake Fauskee: data lunch |
-| 19 | 15 FEB | speaker |
-| 20 | 22 FEB | speaker:  |
+| 19 | 15 FEB | gallery of favorite Python packages |
+| 20 | 22 FEB | student voices: what have you found to be useful?  |
 | 21 | 29 FEB | Jake Gordan: data lunch |
 | 22 | 07 MAR | Jean-Philippe Gibert: data lunch |
 | -- | 14 MAR | no class (spring break) |
