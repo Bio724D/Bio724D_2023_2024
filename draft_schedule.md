@@ -33,9 +33,9 @@
 | -- | 11 MAR | no class (spring break) |
 | 21 | 18 MAR | best practices: data and code management; version control  |
 | 22 | 25 MAR | best practices: visualization  |
-| 23 | 01 APR | domain-specific modules, part 1  |
-| 24 | 08 APR | domain-specific modules, part 2  |
-| 25 | 15 APR | semester wrap-up: lessons learned; project scrums  |
+| 23 | 01 APR | workshopping your future projects, part 1  |
+| 24 | 08 APR | workshopping your future projects, part 1  |
+| 25 | 15 APR | final project clinic |
 | -- | 22 APR | no class (graduate classes end 17 APR)  |
 
 ## Data lunch
