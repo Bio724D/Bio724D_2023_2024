@@ -31,8 +31,8 @@
 | 19 | 26 FEB | sql: relational databases; queries |
 | 20 | 05 MAR | sql: building databases; integrating with Python |
 | -- | 11 MAR | no class (spring break) |
-| 21 | 18 MAR | best practices: data and code management; version control  |
-| 22 | 25 MAR | best practices: visualization  |
+| 21 | 18 MAR | best practices: visualization  |
+| 22 | 25 MAR | best practices: data and code management; version control  |
 | 23 | 01 APR | workshopping your future projects, part 1  |
 | 24 | 08 APR | workshopping your future projects, part 2  |
 | 25 | 15 APR | final project clinic |
