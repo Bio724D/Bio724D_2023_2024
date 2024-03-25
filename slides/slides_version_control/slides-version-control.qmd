@@ -101,4 +101,23 @@ In the context of computer programming, version control systems (VCS) have been 
   
 - Frequent small changes are easier to work with than infrequent, large changes
 
+- When changes are not obvious in terms of addition / deletion of files, make an effort to write useful commit summaries (easier to search history)
+
 - Favor plain text workflows (e.g. markdown) and convert to binary/proprietary formats (e.g. PDF, MS Word) late in process
+
+## Git repos: Some examples
+
+- Programming
+
+- Rotation projects
+
+- Grant writing
+
+- Courses
+
+- Notes and todos
+
+- Your personal website
+
+
+
