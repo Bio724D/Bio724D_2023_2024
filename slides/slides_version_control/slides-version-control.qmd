@@ -25,6 +25,7 @@ include-in-header:
     \setbeamerfont{frametitle}{series=\bfseries}
     \setbeamertemplate{itemize item}[circle]
     \setbeamertemplate{itemize subitem}[square]
+    \setbeamertemplate{itemize subsubitem}[circle]
 
 execute:
   echo: true
@@ -90,4 +91,14 @@ In the context of computer programming, version control systems (VCS) have been 
 	- e.g. Host webpages
 	
 	
+## Recommendations for effective version control
 
+- Modularize your code / documents -- facilitates simultaneous editing, merging
+  - Favor organizing your code into functions and submodules 
+  - Breaking ordinary text up into logical subunits
+    - `abstract.md`, `introduction.md`, `methods.md`, ...
+    - If using Quarto markdown use [`include` mechanism](https://quarto.org/docs/authoring/includes.html)
+  
+- Frequent small changes are easier to work with than infrequent, large changes
+
+- Favor plain text workflows (e.g. markdown) and convert to binary/proprietary formats (e.g. PDF, MS Word) late in process
