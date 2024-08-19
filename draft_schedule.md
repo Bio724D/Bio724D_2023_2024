@@ -2,41 +2,41 @@
 
 ## Lecture / lab
 
-*class meets 3:05-5:05PM on Mondays in French Science room 2237*  
+*class meets 3:05-5:35PM on Tuesdays in BioSci room 144*  
 | session | date | topics |
 | ------- | ---- | ------ |
-| 01 | 28 AUG | course orientation; introduction to R and the file system  |
-| -- | 04 SEP | no class (Labor Day)  |     
-| 02 | 11 SEP | R: importing data and making sure its correct and computable  | 
-| 03 | 18 SEP | R: organizing and exploring your data  |
-| 04 | 25 SEP | R: visualizing your data with ggplot2  |
-| 05 | 02 OCT | R: data wrangling, joins, and pipes |
-| 06 | 09 OCT | R: programming basics: flow control and functions  |
-| -- | 16 OCT | no class (fall break) |
-| 07 | 23 OCT | R: more filtering and regular expressions  |
-| 08 | 30 OCT | unix: introduction to unix; navigating the file system  |
-| 09 | 06 NOV | unix: data processing  |
-| 10 | 13 NOV | unix: sed and awk  |
-| 11 | 20 NOV | unix: shell scripting  |
-| 12 | 27 NOV | semester wrap-up: lessons learned; project scrums |
-| -- | 04 DEC | no class (graduate classes end 01 DEC)  |
+| 01 | 27 AUG | course orientation; introduction to R |
+| 02 | 03 SEP | R: data import, data types, and data structures |     
+| 03 | 10 SEP | R: introduction to ggplot2 and data visualization| 
+| 04 | 17 SEP | R: introduction to the Tidyverse |
+| 05 | 24 SEP | R: data wrangling |
+| 06 | 01 OCT | R: more with ggplot2 |
+| 07 | 08 OCT | R: advanced data wrangling |
+| -- | 15 OCT | no class (fall break) |
+| 08 | 22 OCT | R: functions and control flow |
+| 09 | 29 OCT | Git: introduction to version control |
+| 10 | 05 NOV | Data wrangling project |
+| 11 | 12 NOV | SQL: relational databases; queries |
+| 12 | 19 NOV | SQL: building databases; integrating with Python |
+| 13 | 26 NOV | Project workshop |
+| -- | 03 DEC | no class (graduate classes end evening 26 NOV) |
 | -- | -- | winter break |
-| 13 | 10 JAN | python: introduction to python (FDOC; Monday schedule in effect) |  
-| -- | 15 JAN | no class (Martin Luther King Day)  |
-| 14 | 22 JAN | python: data structures and programming basics  |
-| 15 | 29 JAN | python: flow and functions  |
-| 16 | 05 FEB | python: numpy and matplotlib  |
-| 17 | 12 FEB | python: pandas and seaborn  |
-| 18 | 19 FEB | python: more pandas |
-| 19 | 26 FEB | sql: relational databases; queries |
-| 20 | 05 MAR | sql: building databases; integrating with Python |
+| 14 | 14 JAN | unix: introduction to unix; navigating |  
+| 15 | 15 JAN | unix: data processing; pipes |
+| 16 | 22 JAN | unix: regular expressions; grep and sed |
+| 15 | 28 JAN | unix: awk |
+| 16 | 04 FEB | unix: scripts |
+| 17 | 11 FEB | python: introduction to python |
+| 18 | 18 FEB | python: data types and data structures |
+| 19 | 25 FEB | python: flow and functions |
+| 20 | 04 MAR | python: numpy and matplotlib |
 | -- | 11 MAR | no class (spring break) |
-| 21 | 18 MAR | best practices: visualization  |
-| 22 | 25 MAR | best practices: data and code management; version control  |
-| 23 | 01 APR | workshopping your future projects, part 1  |
-| 24 | 08 APR | workshopping your future projects, part 2  |
+| 21 | 18 MAR | python: pandas and seaborn |
+| 22 | 25 MAR | python: numpy and matplotlib |
+| 23 | 01 APR | python: more pandas |
+| 24 | 08 APR | final project clinic |
 | 25 | 15 APR | final project clinic |
-| -- | 22 APR | no class (graduate classes end 17 APR)  |
+| -- | 22 APR | no class (graduate classes end 16 APR)  |
 
 ## Data lunch
 
