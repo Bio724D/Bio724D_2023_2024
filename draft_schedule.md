@@ -31,9 +31,9 @@
 | 19 | 25 FEB | python: flow and functions |
 | 20 | 04 MAR | python: numpy and matplotlib |
 | -- | 11 MAR | no class (spring break) |
-| 21 | 18 MAR | python: pandas and seaborn |
-| 22 | 25 MAR | python: numpy and matplotlib |
-| 23 | 01 APR | python: more pandas |
+| 21 | 18 MAR | python: pandas |
+| 22 | 25 MAR | python: more pandas and seaborn |
+| 23 | 01 APR | python: object-oriented programming |
 | 24 | 08 APR | final project clinic |
 | 25 | 15 APR | final project clinic |
 | -- | 22 APR | no class (graduate classes end 16 APR)  |
@@ -74,5 +74,3 @@
 | 25 | 03 APR | TBD |
 | 26 | 10 APR | TBD |
 | -- | 17 APR | no class (graduate classes end 16 APR) |speaker |
-  
-  
