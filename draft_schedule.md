@@ -2,75 +2,77 @@
 
 ## Lecture / lab
 
-*class meets 3:05-5:35PM on Tuesdays in BioSci room 154*  
+*class meets 3:05-5:05PM on Mondays in French Science room 2237*  
 | session | date | topics |
 | ------- | ---- | ------ |
-| 01 | 27 AUG | course orientation; introduction to R |
-| 02 | 03 SEP | R: data import, data types, and data structures |     
-| 03 | 10 SEP | R: introduction to ggplot2 and data visualization| 
-| 04 | 17 SEP | R: introduction to the Tidyverse |
-| 05 | 24 SEP | R: data wrangling |
-| 06 | 01 OCT | R: more with ggplot2 |
-| 07 | 08 OCT | R: advanced data wrangling |
-| -- | 15 OCT | no class (fall break) |
-| 08 | 22 OCT | R: functions and control flow |
-| 09 | 29 OCT | Git: introduction to version control |
-| 10 | 05 NOV | Data wrangling project |
-| 11 | 12 NOV | SQL: relational databases; queries |
-| 12 | 19 NOV | SQL: building databases; integrating with Python |
-| 13 | 26 NOV | Project workshop |
-| -- | 03 DEC | no class (graduate classes end evening 26 NOV) |
+| 01 | 28 AUG | course orientation; introduction to R and the file system  |
+| -- | 04 SEP | no class (Labor Day)  |     
+| 02 | 11 SEP | R: importing data and making sure its correct and computable  | 
+| 03 | 18 SEP | R: organizing and exploring your data  |
+| 04 | 25 SEP | R: visualizing your data with ggplot2  |
+| 05 | 02 OCT | R: data wrangling, joins, and pipes |
+| 06 | 09 OCT | R: programming basics: flow control and functions  |
+| -- | 16 OCT | no class (fall break) |
+| 07 | 23 OCT | R: more filtering and regular expressions  |
+| 08 | 30 OCT | unix: introduction to unix; navigating the file system  |
+| 09 | 06 NOV | unix: data processing  |
+| 10 | 13 NOV | unix: sed and awk  |
+| 11 | 20 NOV | unix: shell scripting  |
+| 12 | 27 NOV | semester wrap-up: lessons learned; project scrums |
+| -- | 04 DEC | no class (graduate classes end 01 DEC)  |
 | -- | -- | winter break |
-| 14 | 14 JAN | unix: introduction to unix; navigating |  
-| 15 | 15 JAN | unix: data processing; pipes |
-| 16 | 22 JAN | unix: regular expressions; grep and sed |
-| 15 | 28 JAN | unix: awk |
-| 16 | 04 FEB | unix: scripts |
-| 17 | 11 FEB | python: introduction to python |
-| 18 | 18 FEB | python: data types and data structures |
-| 19 | 25 FEB | python: flow and functions |
-| 20 | 04 MAR | python: numpy and matplotlib |
+| 13 | 10 JAN | python: introduction to python (FDOC; Monday schedule in effect) |  
+| -- | 15 JAN | no class (Martin Luther King Day)  |
+| 14 | 22 JAN | python: data structures and programming basics  |
+| 15 | 29 JAN | python: flow and functions  |
+| 16 | 05 FEB | python: numpy and matplotlib  |
+| 17 | 12 FEB | python: pandas and seaborn  |
+| 18 | 19 FEB | python: more pandas |
+| 19 | 26 FEB | sql: relational databases; queries |
+| 20 | 05 MAR | sql: building databases; integrating with Python |
 | -- | 11 MAR | no class (spring break) |
-| 21 | 18 MAR | python: pandas |
-| 22 | 25 MAR | python: more pandas and seaborn |
-| 23 | 01 APR | python: object-oriented programming |
-| 24 | 08 APR | final project clinic |
+| 21 | 18 MAR | best practices: visualization  |
+| 22 | 25 MAR | best practices: data and code management; version control  |
+| 23 | 01 APR | workshopping your future projects, part 1  |
+| 24 | 08 APR | workshopping your future projects, part 2  |
 | 25 | 15 APR | final project clinic |
-| -- | 22 APR | no class (graduate classes end 16 APR)  |
+| -- | 22 APR | no class (graduate classes end 17 APR)  |
 
 ## Data lunch
 
-*class meets 12:00-1:00PM on Thursdays in Biological Sciences room 144*  
+*class meets 12:00-1:00PM on Thursdays in Biological Sciences room 248*  
 | session | date | topics |
 | ------- | ---- | ------ |
-| 01 | 29 AUG | student introductions and discussion |
-| 02 | 05 SEP | instructors: trouble-shooting homework |     
-| 03 | 12 SEP | instructor 1: data lunch | 
-| 04 | 18 SEP | instructor 2: data lunch | 
-| 05 | 26 SEP | TBD | 
-| 06 | 03 OCT | TBD | 
-| 07 | 10 OCT | TBD | 
-| 08 | 17 OCT | TBD | 
-| 09 | 24 OCT | TBD | 
-| 10 | 31 OCT | TBD | 
-| 11 | 07 NOV | TBD | 
-| 12 | 14 NOV | TBD | 
-| 13 | 21 NOV | instructors: trouble-shooting projects | 
-| -- | 28 NOV | no class (Thanksgiving break) | 
-| -- | 05 DEC | no class (graduate classes end 26 NOV) |
+| 01 | 31 AUG | instructor introductions and discussion |
+| 02 | 07 SEP | instructors: trouble-shooting homework |     
+| 03 | 14 SEP | instructor 1: data lunch | 
+| 04 | 21 SEP | instructor 2: data lunch | 
+| 05 | 28 SEP | instructor 3: data lunch | 
+| 06 | 05 OCT | bio IT team / library: computing / learning resources | 
+| 07 | 12 OCT | check-in / troublshooting lunch | 
+| 08 | 19 OCT | Sarah Lipshutz: data lunch | 
+| 09 | 26 OCT | Spencer Rhea: data lunch | 
+| 10 | 02 NOV | Amy Schmid: data lunch  | 
+| 11 | 09 NOV | Beniamino Tuliozi: data lunch | 
+| 12 | 16 NOV | Diego Gallegos: data lunch | 
+| -- | 23 NOV | no class (Thanksgiving break) | 
+| 13 | 30 NOV | instructors: trouble-shooting projects | 
+| -- | 07 DEC | no class (graduate classes end 01 DEC) |
 | -- | -- | winter break |
-| 14 | 09 JAN | TBD | 
-| 15 | 16 JAN | TBD |
-| 16 | 23 JAN | TBD |
-| 17 | 30 JAN | TBD |
-| 18 | 08 FEB | TBD |
-| 19 | 13 FEB | TBD |
-| 20 | 20 FEB | TBD |
-| 21 | 27 FEB | TBD |
-| 22 | 06 MAR | TBD |
-| -- | 13 MAR | no class (spring break) |
-| 23 | 20 MAR | TBD |
-| 24 | 27 MAR | TBD |
-| 25 | 03 APR | TBD |
-| 26 | 10 APR | TBD |
-| -- | 17 APR | no class (graduate classes end 16 APR) |speaker |
+| 14 | 11 JAN | no class | 
+| 15 | 18 JAN | Greg Wray: principles of reproducibility and sharing |
+| 16 | 25 JAN | Steve Haase: data lunch |
+| 17 | 01 FEB | Paul Magwene: Python in practice |
+| 18 | 08 FEB | Blake Fauskee: data lunch |
+| 19 | 15 FEB | gallery of favorite Python packages |
+| 20 | 22 FEB | student voices: what have you found to be useful?  |
+| 21 | 29 FEB | Jake Gordan: data lunch |
+| 22 | 07 MAR | Jean-Philippe Gibert: data lunch |
+| -- | 14 MAR | no class (spring break) |
+| 23 | 21 MAR | Arnaldo Carreira Rosario: data lunch |
+| 24 | 28 MAR | Justin Wright: data lunch |
+| 25 | 04 APR | Cullen Roth: data lunch |
+| 26 | 11 APR | Alex Phillips: data lunch |
+| -- | 18 APR | no class (graduate classes end 17 APR) |speaker |
+  
+  
